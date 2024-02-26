@@ -16,9 +16,11 @@ if (isset($_POST["submit"]) ) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="adminlogin.css">
     <title>Document</title>
 </head>
 <body>
+    
     <h1>Login Admin</h1>
 
 <?php if(isset($error) ) :?>
