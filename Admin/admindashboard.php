@@ -1,5 +1,6 @@
 <?php
-require_once "../config.php";
+// Panggil fail function
+require_once '../config.php';
 
 $pelajar = ambildata($condb, 'SELECT * FROM pelajar');
 
@@ -9,56 +10,58 @@ $pelajar = ambildata($condb, 'SELECT * FROM pelajar');
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senarai Pelajar</title>
 </head>
 
 <body>
-  <h1>Welcome Admin</h1>
+    <h1>Senarai Pelajar</h1>
 
-  <body>
+    <a href="tambahpelajar.php">Daftar Pelajar</a>
+    <br><br>
+
     <table border="1" cellpadding="10" cellspacing="0">
-      <tr>
-        <th>No.</th>
-        <th>Gambar</th>
-        <th>Nama</th>
-        <th>NDP</th>
-        <th>Email</th>
-        <th>Kursus</th>
-        <th>Tetapan</th>
-      </tr>
 
-      <?php $i = 1; ?>
-      <?php foreach ($pelajar as $row) : ?>
         <tr>
-          <td>
-            <?= $i; ?>
-          </td>
-          <td><img src="../img/<?= $row['gambar']; ?>" width="45px"></td>
-          <td>
-            <?= $row['ndp'] ?>
-          </td>
-          <td>
-            <?= $row['fname'] . ' ' . $row['lname'] ?>
-          </td>
-          <td>
-            <?= $row['email'] ?>
-          </td>
-          <td>
-            <?= $row['kursus'] ?>
-          </td>
-          <td>
-            <a href="4_edit.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/edit.png"></a>
-            <a href="3_delete.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/delete.png"></a>
-          </td>
+            <th>No.</th>
+            <th>Gambar</th>
+            <th>NDP</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Kursus</th>
+            <th>Tetapan</th>
         </tr>
-        <?php $i++; ?>
-      <?php endforeach; ?>
+
+        <?php $i = 1; ?>
+        <?php foreach ($pelajar as $row) : ?>
+            <tr>
+                <td>
+                    <?= $i; ?>
+                </td>
+                <td><img src="../img/<?= $row['gambar']; ?>" width="45px"></td>
+                <td>
+                    <?= $row['ndp'] ?>
+                </td>
+                <td>
+                    <?= $row['fname'] . ' ' . $row['lname'] ?>
+                </td>
+                <td>
+                    <?= $row['email'] ?>
+                </td>
+                <td>
+                    <?= $row['kursus'] ?>
+                </td>
+                <td>
+                    <a href="4_edit.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/edit.png"></a>
+                    <a href="3_delete.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/delete.png"></a>
+                </td>
+            </tr>
+            <?php $i++; ?>
+        <?php endforeach; ?>
 
     </table>
-  </body>
-  <p><a href="adminlogin.php">Logout</a></p>
+
 </body>
 
 </html>

@@ -1,12 +1,14 @@
 <?php
-//database connect 
-$condb = mysqli_connect('localhost','root', '', 'ciastcommunity');
-//check db connection
-if(!$condb) {
+
+// Sambungan ke database
+$condb = mysqli_connect('localhost', 'root', '', 'ciastcommunity');
+
+// Check DB connection
+if (!$condb) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-//query funtion
+// Query function
 function ambildata($condb, $query)
 {
     $result = mysqli_query($condb, $query); //Query
@@ -20,4 +22,42 @@ function ambildata($condb, $query)
     return $rows;
 }
 
-?>
+// Fungsi daftar pelajar
+function daftar($condb, $data)
+{
+
+    // Simpan setiap data dari post $data ke dalam variables
+    $fname = htmlspecialchars($data['fname']);
+    $lname = htmlspecialchars($data['lname']);
+    $nokp = htmlspecialchars($data['nokp']);
+    $ndp = htmlspecialchars($data['ndp']);
+    $email = htmlspecialchars($data['email']);
+    $kursus = htmlspecialchars($data['kursus']);
+    $gambar = htmlspecialchars($data['gambar']);
+
+    // Query INSERT data ke dalam database
+    $query = "INSERT INTO pelajar
+     VALUES
+     ('',
+     '$fname',
+     '$lname',
+     '$nokp',
+     '$ndp',
+     '$email',
+     '$kursus',
+     '$gambar'
+     )";
+
+    // Run query
+    mysqli_query($condb, $query);
+
+    return mysqli_affected_rows($condb);
+}
+
+// Fungsi delete pelajar
+function padampelajar($condb, $id)
+{
+    mysqli_query($condb, "DELETE FROM pelajar WHERE id = $id");
+
+    return mysqli_affected_rows($condb);
+}

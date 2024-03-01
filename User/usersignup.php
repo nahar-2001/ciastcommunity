@@ -1,3 +1,10 @@
+<?php 
+require '../config.php';
+
+$userlog = ambildata($condb, 'SELECT * FROM userlogin');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
