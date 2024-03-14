@@ -3,6 +3,13 @@
 // Panggil fail function
 require_once '../config.php';
 
+session_start();
+
+if (!isset($_SESSION['submit'])) {
+    header('Location: 1-adminlogin.php');
+    exit;
+}
+
 // Cek jika butang submit telah ditekan
 if (isset($_POST['submit'])) {
 
@@ -11,7 +18,7 @@ if (isset($_POST['submit'])) {
         echo "
         <script>
             alert('Data pelajar berjaya didaftar!'); 
-            document.location.href = 'admindashboard.php';   
+            document.location.href = '4-list.php';   
         </script>
         ";
     } else {
@@ -36,9 +43,9 @@ if (isset($_POST['submit'])) {
 <body>
     <h1>Daftar Pelajar</h1>
 
-    <a href="admindashboard.php">Senarai Pelajar</a>
+    <a href="4-list.php">Senarai Pelajar</a>
 
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <ul>
             <li>
                 <label for="fname">First Name:</label><br>
@@ -72,7 +79,7 @@ if (isset($_POST['submit'])) {
             <br>
             <li>
                 <label for="gambar">Gambar:</label><br>
-                <input type="text" name="gambar" id="gambar" required>
+                <input type="file" name="gambar" id="gambar" required>
             </li>
             <br>
             <button type="submit" name="submit">Daftar</button>

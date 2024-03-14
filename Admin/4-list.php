@@ -2,6 +2,13 @@
 // Panggil fail function
 require_once '../config.php';
 
+session_start();
+
+if (!isset($_SESSION['submit'])) {
+    header('Location: 1-adminlogin.php');
+    exit;
+}
+
 $pelajar = ambildata($condb, 'SELECT * FROM pelajar');
 
 ?>
@@ -18,8 +25,14 @@ $pelajar = ambildata($condb, 'SELECT * FROM pelajar');
 <body>
     <h1>Senarai Pelajar</h1>
 
-    <a href="tambahpelajar.php">Daftar Pelajar</a>
+    <a href="3-add.php">Daftar Pelajar</a>
     <br><br>
+
+    <form action="" method="post">
+        <input type="text" name="keyword" size="25" autofocus placeholder="Search" autocomplete="off">
+        <button type="submit" name="search">Search</button>
+    </form>
+    <br>
 
     <table border="1" cellpadding="10" cellspacing="0">
 
@@ -53,8 +66,8 @@ $pelajar = ambildata($condb, 'SELECT * FROM pelajar');
                     <?= $row['kursus'] ?>
                 </td>
                 <td>
-                    <a href="4_edit.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/edit.png"></a>
-                    <a href="3_delete.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/delete.png"></a>
+                    <a href="5-edit.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/edit.png"></a>
+                    <a href="6-delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['fname'] . ' ' . $row['lname'] ?>?');"><img width="25px" src="../img/delete.png"></a>
                 </td>
             </tr>
             <?php $i++; ?>

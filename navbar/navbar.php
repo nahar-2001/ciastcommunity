@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width='device-width', initial-scale=1.0">
     <title>ciastcommunity</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <link rel="stylesheet" href="main.css">
+    
     <div id="main">
         <div class="container">
             <div style="margin-top:150px;margin-bottom:30px;text-align:center;">
@@ -63,7 +64,7 @@
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-
+    <script src="main.js"></script>
 </body>
 
 </html>

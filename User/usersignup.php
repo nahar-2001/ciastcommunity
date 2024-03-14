@@ -1,8 +1,18 @@
 <?php 
 require '../config.php';
 
-$userlog = ambildata($condb, 'SELECT * FROM userlogin');
+if (isset($_POST['signup'])) {
 
+    if(register($condb, $_POST) > 0) {
+        echo "<script>
+            alert('Registration Successfull! Please Login To Continue');
+            document.location.href = 'userlogin.php';  
+            </script>";
+            
+    } else {
+        echo mysqli_error($condb);
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,23 +27,28 @@ $userlog = ambildata($condb, 'SELECT * FROM userlogin');
 <body>
     <h1>Sign Up to Ciast Community</h1>
 
-    <form action="" method="post">
+    <form action="" method="POST">
+        <ul>
+            <li>
+                <label for="username">Username:</label><br>
+                <input type="text" name="username" id="username" required>
+            </li><br>
+            <li>
+                <label for="email">Email:</label><br>
+                <input type="text" name="email" id="email" required>
+            </li><br>
+            <li>
+                <label for="password">Password:</label><br>
+                <input type="password" name="password" id="password" required>
+            </li><br>
+            <li>
+                <label for="password2">Confirm Password:</label><br>
+                <input type="password" name="password2" id="password2" required><br>
+            </li><br>
+            <button type="submit" name="signup">Register</button>
+        </ul>
 
-        <li>
-            <label for="username">Username :</label>
-            <input type="text" name="username" id="username">
-        </li>
-        <li>
-            <label for="email">Email :</label>
-            <input type="text" name="email" id="email">
-
-        </li>
-        <li>
-            <label for="password">Password :</label>
-            <input type="password" name="password" id="password">
-        </li>
-
-        <button type="submit" name="submit">Sign Up</button>
+    </form>
     </form>
 </body>
 

@@ -1,8 +1,19 @@
 
 <?php 
+
+session_start();
+
+if (isset($_SESSION['submit'])) {
+    header('Location: 1-adminlogin.php');
+    exit;
+}
+
 if (isset($_POST["submit"]) ) {
     if($_POST["username"] == "admin" && $_POST["password"] == "123") {
-        header("location: admindashboard.php");
+
+        // set session
+        $_SESSION['submit'] = true;
+        header("location: 2-admindashboard.php");
         exit;
     }else {
         $error = true;
