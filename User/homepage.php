@@ -2,6 +2,11 @@
 
 session_start();
 
+if (!isset($_SESSION['submit'])) {
+    header('Location: userlogin.php');
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +14,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../navbar/main.css">
 </head>
 <body>
@@ -53,7 +60,7 @@ session_start();
                         </li>
                         <li><a href="../navbar/About.php">ABOUT</a></li>
                         <li><a href="../navbar/contact.php">CONTACT</a></li>
-                        <li><a href="userlogin.php" onclick="return confirm('Are You Sure???');">LOG OUT</a></li>
+                        <li><a href="userlogout.php" onclick="return confirm('Are You Sure???');">LOG OUT</a></li>
                     </ul>
                 </div>
                 <div class="nav-bg-fostrap">

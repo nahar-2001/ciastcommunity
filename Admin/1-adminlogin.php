@@ -28,6 +28,8 @@ if (isset($_POST["submit"]) ) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="adminlogin.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
     <title>AdminLogin</title>
 </head>
 <body>
