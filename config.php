@@ -256,12 +256,11 @@ function reports($condb, $reports)
 {
     // Simpan setiap data dari post $data ke dalam variables
     
-    $title = htmlspecialchars($reports['title']);
-    $report = htmlspecialchars($reports['report']);
-    $conclusion = htmlspecialchars($reports['conclusion']);
+    $ptitle = htmlspecialchars($reports['ptitle']);
+    $pdetails = htmlspecialchars($reports['pdetails']);
 
     // Upload gambar
-    $gambar = upload($condb, $title); //value is $newFileName;
+    $gambar = upload($condb, $ptitle); //value is $newFileName;
     if (!$gambar) {
         return false;
     }
@@ -270,9 +269,8 @@ function reports($condb, $reports)
     $query = "INSERT INTO reports
      VALUES
     ('',
-    '$title',
-    '$report',
-    '$conclusion',
+    '$ptitle',
+    '$pdetails',
     '$gambar',
     )";
 

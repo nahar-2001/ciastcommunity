@@ -16,7 +16,7 @@ if (padampelajar($condb, $id) > 0) {
     echo "
         <script>
             alert('Data pelajar berjaya dipadam!'); 
-            document.location.href = 'index.php';   
+            document.location.href = '4-list.php';   
         </script>
         ";
 } else {

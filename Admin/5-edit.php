@@ -55,9 +55,10 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+<?php require_once 'header.php'?>
     <h1>Edit Maklumat Pelajar</h1>
 
-    <a href="index.php">Senarai Pelajar</a>
+    <a href="4-list.php">Senarai Pelajar</a>
 
     <form action="" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" id="id" value="<?= $id; ?>">

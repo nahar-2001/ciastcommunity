@@ -23,6 +23,7 @@ $pelajar = ambildata($condb, 'SELECT * FROM pelajar');
 </head>
 
 <body>
+<?php require_once 'header.php'?>
     <h1>Senarai Pelajar</h1>
 
     <a href="3-add.php">Daftar Pelajar</a>

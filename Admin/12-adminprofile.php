@@ -1,14 +1,3 @@
-<?php 
-session_start();
-
-if (!isset($_SESSION['submit'])) {
-    header('Location: 1-adminlogin.php');
-    exit;
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,14 +6,8 @@ if (!isset($_SESSION['submit'])) {
     <title>Document</title>
 </head>
 <body>
-    <h1>NEWS</h1>
-
-    <form action="" method="post">
-
-    
+<?php require_once 'header.php'?>
 
 
-
-    </form>
 </body>
 </html>

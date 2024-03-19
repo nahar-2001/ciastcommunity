@@ -18,6 +18,19 @@ if (!isset($_SESSION['submit'])) {
     <title>Document</title>
 </head>
 <body>
+<?php require_once 'header.php'?>
     <h1>MENU</h1>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+
+        <tr>
+            <th>Isnin</th>
+            <th>Selasa</th>
+            <th>Rabu</th>
+            <th>Khamis</th>
+            <th>Jumaat</th>
+            <th>Sabtu</th>
+            <th>Ahad</th>
+        </tr>
 </body>
 </html>

@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-<?php include('includes/header.php');?>
+    <?php require_once 'header.php';?>
     <h1>Daftar Pelajar</h1>
 
     <a href="4-list.php">Senarai Pelajar</a>

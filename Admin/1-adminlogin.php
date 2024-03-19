@@ -33,7 +33,7 @@ if (isset($_POST["submit"]) ) {
     <title>AdminLogin</title>
 </head>
 <body>
-    
+
     <h1>Login Admin</h1>
 
 <?php if(isset($error) ) :?>
