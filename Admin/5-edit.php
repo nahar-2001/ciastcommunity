@@ -1,7 +1,7 @@
 <?php
 
 // Panggil fail function
-require_once '../config.php';
+require_once '../functions.php';
 
 session_start();
 
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
         echo "
         <script>
             alert('Data pelajar berjaya dikemas kini!'); 
-            document.location.href = 'index.php';   
+            document.location.href = '4-list.php';   
         </script>
         ";
     } else {
@@ -56,6 +56,7 @@ if (isset($_POST['submit'])) {
 
 <body>
 <?php require_once 'header.php'?>
+
     <h1>Edit Maklumat Pelajar</h1>
 
     <a href="4-list.php">Senarai Pelajar</a>

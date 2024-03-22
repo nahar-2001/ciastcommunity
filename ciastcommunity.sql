@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2024 at 02:57 AM
+-- Generation Time: Mar 21, 2024 at 02:28 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -74,23 +74,14 @@ INSERT INTO `pelajar` (`id`, `fname`, `lname`, `ndp`, `nokp`, `email`, `kursus`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblpost`
+-- Table structure for table `reports`
 --
 
-CREATE TABLE `tblpost` (
+CREATE TABLE `reports` (
   `id` int(11) NOT NULL,
-  `PostTitle` longtext DEFAULT NULL,
-  `CategoryId` int(11) DEFAULT NULL,
-  `SubCategoryId` int(11) DEFAULT NULL,
-  `PostDetails` longtext DEFAULT NULL,
-  `PostingDate` timestamp NULL DEFAULT current_timestamp(),
-  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
-  `Is_Active` int(1) DEFAULT NULL,
-  `PostUrl` mediumtext DEFAULT NULL,
-  `PostImage` varchar(255) CHARACTER SET utf16 DEFAULT NULL,
-  `viewCounter` int(11) DEFAULT NULL,
-  `postedBy` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `lastUpdateBy` varchar(255) DEFAULT NULL
+  `ptitle` char(50) NOT NULL,
+  `pdetails` char(100) NOT NULL,
+  `gambar` char(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -110,9 +101,9 @@ ALTER TABLE `pelajar`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tblpost`
+-- Indexes for table `reports`
 --
-ALTER TABLE `tblpost`
+ALTER TABLE `reports`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -132,9 +123,9 @@ ALTER TABLE `pelajar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tblpost`
+-- AUTO_INCREMENT for table `reports`
 --
-ALTER TABLE `tblpost`
+ALTER TABLE `reports`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 

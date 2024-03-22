@@ -11,18 +11,18 @@ if (!isset($_SESSION['submit'])) {
 
 $id = $_GET['id'];
 
-if (padampelajar($condb, $id) > 0) {
+if (deletenews($condb, $id) > 0) {
 
     echo "
         <script>
-            alert('Data pelajar berjaya dipadam!'); 
-            document.location.href = '4-list.php';   
+            alert('Data report berjaya dipadam!'); 
+            document.location.href = '7-viewnews.php';   
         </script>
         ";
 } else {
     echo "
         <script>
-            alert('Data pelajar gagal dipadam!');    
+            alert('Data report gagal dipadam!');    
         </script>
         ";
 }

@@ -20,7 +20,7 @@ if (!isset($_SESSION['submit'])) {
 
 <p><a href="3-add.php">Students Register</a></p>
 <p><a href="4-list.php">Students List</a></p>
-<p><a href="8-report.php">Reports</a></p>
+<p><a href="8-news.php">News</a></p>
 <p><a href="9-menu.php">Menu</a></p>
 <p><a href="10-sports.php">Sports</a></p>
 </body>

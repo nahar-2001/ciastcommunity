@@ -1,13 +1,13 @@
 <?php
 // Panggil fail function
-require_once '../config.php';
+require_once '../functions.php';
 
 session_start();
 
-// if (!isset($_SESSION['submit'])) {
-//     header('Location: 1-adminlogin.php');
-//     exit;
-// }
+if (!isset($_SESSION['submit'])) {
+    header('Location: 1-adminlogin.php');
+    exit;
+}
 
 $pelajar = ambildata($condb, 'SELECT * FROM pelajar');
 

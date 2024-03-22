@@ -1,6 +1,6 @@
 <?php 
 
-require_once '../config.php';
+require_once '../functions.php';
 
 session_start();
 
@@ -10,11 +10,15 @@ if (!isset($_SESSION['submit'])) {
 }
 
 if (isset($_POST['submit'])) {
-    if (reports($condb, $_POST) > 0) {
+    // var_dump($_POST);
+    // var_dump($_FILES);
+    // die;
+
+    if (news($condb, $_POST) > 0) {
         echo "
         <script>
             alert('Report has Been Updated!'); 
-            document.location.href = '';   
+            document.location.href = '7-viewnews.php';   
         </script>
         ";
     } else {
@@ -24,7 +28,7 @@ if (isset($_POST['submit'])) {
         </script>
         ";
     }
-
+ 
 }
 
 
@@ -49,16 +53,17 @@ if (isset($_POST['submit'])) {
 
 <h1>REPORT</h1>
 
+<a href="7-viewnews.php">View News</a>
 <form action="" method="post" class="row" enctype="multipart/form-data">
 
 <div class="mb-3">
-  <label for="posttitle" class="form-label">Post Title</label>
-  <input type="text" class="form-control" name="posttitle" id="posttitle" required>
+  <label for="ntitle" class="form-label">News Title</label>
+  <input type="text" class="form-control" name="ntitle" id="ntitle" required>
 </div>
 
 <div class="mb-3">
-  <label for="postdetails" class="form-label">Post Details</label>
-  <textarea class="form-control" name="postdetails" id="postdetails" rows="3"></textarea>
+  <label for="ndetails" class="form-label">News Details</label>
+  <textarea class="form-control" name="ndetails" id="ndetails" rows="3"></textarea>
 </div>
 
 <div>

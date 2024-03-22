@@ -1,8 +1,4 @@
-<?php
-
-// Panggil fail function
-require_once '../functions.php';
-
+<?php 
 session_start();
 
 if (!isset($_SESSION['submit'])) {
@@ -10,42 +6,23 @@ if (!isset($_SESSION['submit'])) {
     exit;
 }
 
-// Cek jika butang submit telah ditekan
-if (isset($_POST['submit'])) {
-
-    // Cek status daftar pelajar
-    if (daftar($condb, $_POST) > 0) {
-        echo "
-        <script>
-            alert('Data pelajar berjaya didaftar!'); 
-            document.location.href = '4-list.php';   
-        </script>
-        ";
-    } else {
-        echo "
-        <script>
-            alert('Data pelajar gagal didaftar!');    
-        </script>
-        ";
-    }
-}
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Pelajar</title>
+    <title>Document</title>
 </head>
-
 <body>
-    <?php require_once 'header.php';?>
-    <h1>Daftar Pelajar</h1>
+<?php require_once 'header.php'?>
 
-    <a href="4-list.php">Senarai Pelajar</a>
+    <h1>MENU</h1>
 
+    <a href="10-viewmenu.php"></a>
     <form action="" method="POST" enctype="multipart/form-data">
         <ul>
             <li>
@@ -86,7 +63,5 @@ if (isset($_POST['submit'])) {
             <button type="submit" name="submit">Daftar</button>
         </ul>
     </form>
-
 </body>
-
 </html>
