@@ -20,13 +20,13 @@ $news = ambildata($condb, 'SELECT * FROM reports');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Reports</title>
+    <title>View News</title>
 </head>
 <body>
 <?php require_once 'header.php';?>
 
 
-<h1>VIEW REPORT</h1>
+<h1>VIEW NEWS</h1>
 
 <a href="8-news.php">Bact To News</a>
 

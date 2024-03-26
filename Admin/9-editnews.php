@@ -19,7 +19,7 @@ $gambar = $news['gambar'];
 if (isset($_POST['submit'])) {
 
     // Cek status edit/ update pelajar
-    if (edit($condb, $_POST) > 0) {
+    if (editnews($condb, $_POST) > 0) {
         echo "
         <script>
             alert('News has been updated!'); 

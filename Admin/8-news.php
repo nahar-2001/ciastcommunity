@@ -57,13 +57,13 @@ if (isset($_POST['submit'])) {
 <form action="" method="post" class="row" enctype="multipart/form-data">
 
 <div class="mb-3">
-  <label for="ntitle" class="form-label">News Title</label>
-  <input type="text" class="form-control" name="ntitle" id="ntitle" required>
+  <label for="ptitle" class="form-label">News Title</label>
+  <input type="text" class="form-control" name="ptitle" id="ptitle" required>
 </div>
 
 <div class="mb-3">
-  <label for="ndetails" class="form-label">News Details</label>
-  <textarea class="form-control" name="ndetails" id="ndetails" rows="3"></textarea>
+  <label for="pdetails" class="form-label">News Details</label>
+  <textarea class="form-control" name="pdetails" id="pdetails" rows="3"></textarea>
 </div>
 
 <div>
