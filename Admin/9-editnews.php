@@ -15,6 +15,7 @@ $news = ambildata($condb, "SELECT * FROM reports WHERE id = $id")[0];
 $ptitle = $news['ptitle'];
 $pdetails = $news['pdetails'];
 $gambar = $news['gambar'];
+$gambar2 = $news['gambar2'];
 
 if (isset($_POST['submit'])) {
 
@@ -54,12 +55,19 @@ if (isset($_POST['submit'])) {
     <form action="" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" id="id" value="<?= $id; ?>">
     <input type="hidden" name="gambarLama" id="gambarLama" value="<?= $gambar; ?>">
+    <input type="hidden" name="gambarLama2" id="gambarLama2" value="<?= $gambar2; ?>">
 
     <ul>
             <li>
                 <label for="gambar">Gambar:</label><br>
                 <img src="../img/<?= $gambar ?>" width="75px" alt=""><br>
                 <input type="file" name="gambar" id="gambar">
+            </li>
+            <br>
+            <li>
+                <label for="gambar2">Gambar:</label><br>
+                <img src="../img/<?= $gambar2 ?>" width="75px" alt=""><br>
+                <input type="file" name="gambar2" id="gambar2">
             </li>
             <br>
             <li>

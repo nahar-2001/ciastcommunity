@@ -66,9 +66,14 @@ if (isset($_POST['submit'])) {
   <textarea class="form-control" name="pdetails" id="pdetails" rows="3"></textarea>
 </div>
 
-<div>
+<div class="mb-3">
     <label for="gambar">Gambar</label>
-    <input type="file" name="gambar" id="gambar" required>
+    <input type="file" name="gambar" id="gambar">
+</div>
+
+<div class="mb-3">
+    <label for="gambar2">Gambar</label>
+    <input type="file" name="gambar2" id="gambar2">
 </div>
 
 <button type="submit" name="submit" class="btn btn-success">Save and Post</button>

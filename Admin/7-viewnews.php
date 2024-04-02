@@ -39,6 +39,7 @@ $news = ambildata($condb, 'SELECT * FROM reports');
     <th>Post Title</th>
     <th>Post Details</th>
     <th>Picture</th>
+    <th>Picture</th>
     <th>Settings</th>
 </tr>
 
@@ -56,6 +57,7 @@ $news = ambildata($condb, 'SELECT * FROM reports');
             <?= $row['pdetails'] ?>
         </td>
         <td><img src="../img/<?= $row['gambar']; ?>" width="45px"></td>
+        <td><img src="../img/<?= $row['gambar2']; ?>" width="45px"></td>
         <td>
             <a href="9-editnews.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/edit.png"></a>
             <a href="10-deletenews.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['ptitle'] ?>?');"><img width="25px" src="../img/delete.png"></a>

@@ -265,6 +265,11 @@ function news($condb, $posts)
         return false;
     }
 
+    $gambar2 = uploads1();
+    if(!$gambar2){
+        return false;
+    }
+
     // if($_FILES['gambar']['error'] === 4) {
     //     $pictures = $gambar; 
     // }
@@ -280,7 +285,8 @@ function news($condb, $posts)
     ('',
     '$ptitle',
     '$pdetails',
-    '$gambar'
+    '$gambar',
+    '$gambar2'
     )";
 
     // Run query
@@ -356,6 +362,52 @@ function uploads()
     return $namaFileBaru;
 }
 
+function uploads1()
+{
+    $namaFile = $_FILES['gambar2']['name'];
+    $saizFile = $_FILES['gambar2']['size'];
+    $error = $_FILES['gambar2']['error'];
+    $tmpName = $_FILES['gambar2']['tmp_name'];
+
+    // Cek jika tiada gambar diupload
+    if ($error === 4) {
+        echo "<script>
+                alert('Pilih gambar terlebih dahulu!');
+              </script>";
+        return false;
+    }
+
+    // Cek jika hanya format gambar diupload
+    $extGambarValid = ['jpg', 'jpeg', 'png'];
+
+    // $extGambar = explode('.', $namaFile);
+    $extGambar = pathinfo($namaFile, PATHINFO_EXTENSION);
+    $extGambarLower = strtolower($extGambar);
+
+    if (!in_array($extGambarLower, $extGambarValid)) {
+        echo "<script>
+                alert('Anda upload format gambar yang tidak dibenarkan!\\n (Hanya upload format gambar .jpg, atau .jpeg, atau .png)');
+              </script>";
+        return false;
+    }
+
+    // Cek jika saiz gambar < max (1048576 bytes ~~ 1MB)
+    $maxSize = 1000000;
+    if ($saizFile > $maxSize) {
+        echo "<script>
+                alert('Saiz gambar melebihi 1MB!');
+              </script>";
+        return false;
+    }
+
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= '.';
+    $namaFileBaru .= $extGambarLower;
+
+    move_uploaded_file($tmpName, '../img/' . $namaFileBaru);
+    return $namaFileBaru;
+}
+
 function editnews($condb, $edit)
 {
 
@@ -363,20 +415,24 @@ function editnews($condb, $edit)
     $ptitle = htmlspecialchars($edit['ptitle']);
     $pdetails = htmlspecialchars($edit['pdetails']);
     $gambarLama = htmlspecialchars($edit['gambarLama']);
+    $gambarLama2 = htmlspecialchars($edit['gambarLama2']);
 
     // Cek jika ada gambar baru diupload
     if ($_FILES['gambar']['error'] === 4) {
         $gambar = $gambarLama;
+        $gambar2 = $gambarLama2;
     } else {
         // Run upload function and store the image name in $gambar
-        $gambar = upload($condb, $ptitle);
+        $gambar = uploads($condb, $ptitle);
+        $gambar2 = uploads1($condb, $ptitle);
     }
 
     // Query UPDATE data ke dalam database
     $query = "UPDATE reports SET
      ptitle = '$ptitle',
      pdetails = '$pdetails',
-     gambar = '$gambar'
+     gambar = '$gambar',
+     gambar2 = '$gambar2'
 
      WHERE id = $id";
 
