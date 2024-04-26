@@ -31,6 +31,7 @@ $menu = ambildata($condb, 'SELECT * FROM menu');
 <h1>MENU POST</h1>
 
 <button class="btn btn-primary"><a href="16-menu.php" style="text-decoration: none; color:white;">Add Menu Post</a></button>
+<br><br>
 
     <form action="" method="post">
 

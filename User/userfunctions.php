@@ -59,4 +59,5 @@ function ambildata($condb, $query)
 
 
 
+
 ?>

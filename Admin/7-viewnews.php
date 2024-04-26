@@ -29,6 +29,7 @@ $news = ambildata($condb, 'SELECT * FROM reports');
 <h1>VIEW NEWS</h1>
 
 <button class="btn btn-primary"><a href="8-news.php" style="text-decoration: none; color:white">Back To News</a></button>
+<br><br>
 
     <form action="" method="post">
 

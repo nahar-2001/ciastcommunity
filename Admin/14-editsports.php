@@ -49,6 +49,9 @@ if (isset($_POST['submit'])) {
     <h1>EDIT SPORTS POST</h1>
 
     <button class="btn btn-primary"><a href="13-sportspost.php" style="text-decoration: none; color:white;">Back To Sports Post</a></button>
+    <br><br>
+
+
 
     <form action="" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" id="id" value="<?= $id; ?>">

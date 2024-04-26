@@ -35,16 +35,16 @@ $reports = ambildata($condb, "SELECT * FROM reports");
                 <div class="nav-fostrap">
                     <ul>
                         <li><a href="homepage.php">Home</a></li>
-                        <li><a href="">Menu Dewan Makan</a></li>
+                        <li><a href="3-menu.php">Menu Dewan Makan</a></li>
                         <li><a href="javascript:void(0)">Aktiviti Umum<span class="arrow-down"></span></a>
                             <ul class="dropdown">
-                                <li><a href="">Aktiviti Mingguan</a></li>
-                                <li><a href="">Laporan Aktiviti</a></li>
+                                <li><a href="2-aktivitimingguan.php">Aktiviti Mingguan</a></li>
+                                <li><a href="1-aktivitiumum.php">Laporan Aktiviti</a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void(0)">Sukan<span class="arrow-down"></span></a>
                             <ul class="dropdown">
-                                <li><a href="">Jadual Mingguan</a></li>
+                                <li><a href="4-sports.php">Jadual Mingguan</a></li>
                             </ul>
                         </li>
                         <li><a href="../navbar/About.php">About</a></li>

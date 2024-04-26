@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once 'functions.php';
+
 if (isset($_SESSION['submit'])) {
     header('Location: 1-adminlogin.php');
     exit;
@@ -18,6 +20,24 @@ if (isset($_POST["submit"]) ) {
         $error = true;
     }
 }
+
+// if (isset($_POST['submit'])) {
+//     // var_dump($_POST);die;
+//     $username = $_POST['username'];
+//     $password = $_POST['password'];
+
+//     $result = mysqli_query($condb, "SELECT * FROM adminlogin WHERE username = '$username'");
+
+//     if (mysqli_num_rows($result) === 1) {
+
+//         $row = mysqli_fetch_assoc($result);
+//         if (password_verify($password, $row['password'])) {
+//             $_SESSION['submit'] = true;
+//             header("location: 2-admindashboard.php");
+//         }
+//     }
+//     $error = true;
+// }
 ?>
 
 
@@ -137,7 +157,7 @@ button:hover{
 
 					<label for="chk" aria-hidden="true">Admin Login</label>
 
-					<input type="username" name="username" id="username" placeholder="User name" required="">
+					<input type="username" name="username" id="username" placeholder="Username" required="">
 
 					<input type="password" name="password" id="password" placeholder="Password" required="">
 

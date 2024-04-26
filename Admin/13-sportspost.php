@@ -30,6 +30,8 @@ $sports = ambildata($condb, 'SELECT * FROM sports');
 <h1>SPORTS POST</h1>
 
 <button class="btn btn-primary"><a href="12-sports.php" style="text-decoration: none; color:white;">Add Sports Post</a></button>
+<br><br>
+
 
     <form action="" method="post">
 

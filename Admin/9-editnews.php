@@ -52,6 +52,7 @@ if (isset($_POST['submit'])) {
     <h1>Edit News</h1>
 
     <a href="7-viewnews.php">Back To View News</a>
+    <br><br>
 
     <form action="" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" id="id" value="<?= $id; ?>">
