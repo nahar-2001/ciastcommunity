@@ -15,7 +15,7 @@ if (!isset($_SESSION['submit'])) {
     <title>Document</title>
 </head>
 <body> -->
-<?php require_once 'header.php'?>
+<?php require_once 'header.php';?>
 <!-- <h1>Welcome Admin</h1> -->
 
 <!-- <p><a href="3-add.php">Students Register</a></p>
@@ -138,9 +138,9 @@ html {
   <div class="col-3 col-s-3 menu">
     <ul>
       <a href="4-list.php" style="text-decoration: none;"><li>Student Information</li></a>
-      <a href="7-viewnews.php" style="text-decoration: none;"><li>News</li></a>
-      <a href="" style="text-decoration: none;"><li>Sports</li></a>
-      <a href="" style="text-decoration: none;"><li>Foods Menu</li></a>
+      <a href="8-news.php" style="text-decoration: none;"><li>News</li></a>
+      <a href="12-sports.php" style="text-decoration: none;"><li>Sports</li></a>
+      <a href="16-menu.php" style="text-decoration: none;"><li>Foods Menu</li></a>
     </ul>
   </div>
 

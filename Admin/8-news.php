@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-require_once '../functions.php';
+require_once 'functions.php';
 
 session_start();
 
@@ -28,7 +28,6 @@ if (isset($_POST['submit'])) {
         </script>
         ";
     }
- 
 }
 
 
@@ -40,47 +39,53 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <title>CIAST News</title>
+    
+    
 </head>
 
 <body>
-<?php require_once 'header.php'?>
+    <?php require_once 'header.php'; ?>
 
-<h1>REPORT</h1>
+    <h1>CIAST NEWS</h1>
 
-<a href="7-viewnews.php">View News</a>
-<form action="" method="post" class="row" enctype="multipart/form-data">
+    <button class="btn btn-primary"><a href="7-viewnews.php" style="text-decoration:none; color: white;">View News Post</a></button>
 
-<div class="mb-3">
-  <label for="ptitle" class="form-label">News Title</label>
-  <input type="text" class="form-control" name="ptitle" id="ptitle" required>
-</div>
+    <button id="printPageButton" class="btn btn-primary" onclick="window.print()">
+        <i class="fas fa-print"></i> Print
+    </button>
 
-<div class="mb-3">
-  <label for="pdetails" class="form-label">News Details</label>
-  <textarea class="form-control" name="pdetails" id="pdetails" rows="3"></textarea>
-</div>
+    <form action="" method="post" class="row" enctype="multipart/form-data">
 
-<div class="mb-3">
-    <label for="gambar">Gambar</label>
-    <input type="file" name="gambar" id="gambar">
-</div>
+        <div class="mb-3">
+            <label for="ptitle" class="form-label">News Title</label>
+            <input type="text" class="form-control" name="ptitle" id="ptitle" required>
+        </div>
 
-<div class="mb-3">
-    <label for="gambar2">Gambar</label>
-    <input type="file" name="gambar2" id="gambar2">
-</div>
+        <div class="mb-3">
+            <label for="pdetails" class="form-label">News Details</label>
+            <textarea class="form-control" name="pdetails" id="pdetails" rows="3"></textarea>
+        </div>
 
-<button type="submit" name="submit" class="btn btn-success">Save and Post</button>
-<br>
-<button type="button" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Are You Sure to Discard Your Report');">Discard</button>
-</form> 
+        <div class="mb-3">
+            <label for="gambar">Gambar</label>
+            <input type="file" name="gambar" id="gambar">
+        </div>
 
+        <div class="mb-3">
+            <label for="gambar2">Gambar</label>
+            <input type="file" name="gambar2" id="gambar2">
+        </div>
+
+        <button type="submit" name="submit" class="btn btn-success">Save and Post</button>
+        <br>
+        <button type="button" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Are You Sure to Discard Your Report');">Discard</button>
+    </form>
 
 </body>
+
 </html>

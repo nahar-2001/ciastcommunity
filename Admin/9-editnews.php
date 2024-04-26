@@ -1,5 +1,5 @@
 <?php 
-require_once '../functions.php';
+require_once 'functions.php';
 
 session_start();
 
@@ -30,7 +30,8 @@ if (isset($_POST['submit'])) {
     } else {
         echo "
         <script>
-            alert('Tiada perubahan data dilakukan!');    
+            alert('Tiada perubahan data dilakukan!');
+            document.location.href = '7-viewnews.php';  
         </script>
         ";
     }
@@ -46,7 +47,7 @@ if (isset($_POST['submit'])) {
     <title>Edit News</title>
 </head>
 <body>
-<?php require_once 'header.php'; ?>
+<?php require_once 'header.php';?>
 
     <h1>Edit News</h1>
 

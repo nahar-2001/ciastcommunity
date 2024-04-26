@@ -1,7 +1,7 @@
 <?php
 
 // Panggil fail function
-require_once '../functions.php';
+require_once 'functions.php';
 
 session_start();
 
@@ -31,6 +31,7 @@ if (isset($_POST['submit'])) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,9 +43,10 @@ if (isset($_POST['submit'])) {
 
 <body>
     <?php require_once 'header.php';?>
+    
     <h1>Daftar Pelajar</h1>
 
-    <a href="4-list.php">Senarai Pelajar</a>
+    <button class="btn btn-primary"><a href="4-list.php" style="text-decoration: none; color:white;">Senarai Pelajar</a></button>
 
     <form action="" method="POST" enctype="multipart/form-data">
         <ul>

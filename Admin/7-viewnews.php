@@ -1,6 +1,6 @@
 <?php 
 
-require_once '../functions.php';
+require_once 'functions.php';
 
 session_start();
 
@@ -28,7 +28,7 @@ $news = ambildata($condb, 'SELECT * FROM reports');
 
 <h1>VIEW NEWS</h1>
 
-<a href="8-news.php">Bact To News</a>
+<button class="btn btn-primary"><a href="8-news.php" style="text-decoration: none; color:white">Back To News</a></button>
 
     <form action="" method="post">
 

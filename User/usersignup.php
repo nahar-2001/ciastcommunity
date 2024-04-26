@@ -1,5 +1,5 @@
 <?php 
-require '../functions.php';
+require 'userfunctions.php';
 
 if (isset($_POST['signup'])) {
 
@@ -15,84 +15,129 @@ if (isset($_POST['signup'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>SB Admin - Start Bootstrap Template</title>
-    <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom fonts for this template-->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin.css" rel="stylesheet">
-    <link rel="stylesheet" href="adminlogin.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <title>User Sign Up</title>
+	<title>Admin Login</title>
+	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+<style>
+    body{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'Jost', sans-serif;
+	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+}
+.main{
+	width: 350px;
+	height: 500px;
+	background: red;
+	overflow: hidden;
+	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+	border-radius: 10px;
+	box-shadow: 5px 20px 50px #000;
+}
+#chk{
+	display: none;
+}
+.signup{
+	position: relative;
+	width:100%;
+	height: 100%;
+}
+label{
+	color: #fff;
+	font-size: 2.3em;
+	justify-content: center;
+	display: flex;
+	margin: 60px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+input{
+	width: 60%;
+	height: 20px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: 20px auto;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+button{
+	width: 60%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #573b8a;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 20px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+button:hover{
+	background: #6d44b8;
+}
+.login{
+	height: 460px;
+	background: #eee;
+	border-radius: 60% / 10%;
+	transform: translateY(-180px);
+	transition: .8s ease-in-out;
+}
+.login label{
+	color: #573b8a;
+	transform: scale(.6);
+}
+
+#chk:checked ~ .login{
+	transform: translateY(-500px);
+}
+#chk:checked ~ .login label{
+	transform: scale(1);	
+}
+#chk:checked ~ .signup label{
+	transform: scale(.6);
+}
+
+</style>
 </head>
 
-<body class="bg-dark">
-    
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+			<div class="signup">
 
-    <div class="container">
-        <div class="card card-register mx-auto mt-5">
-        <div class="card-header"><h1>Sign Up to Ciast Community</h1></div>
-        <div class="card-body">
+				<form action="" method="post">
 
-        <form action="" method="POST">
-        <div class="form-group">
-            <div class="form-row">
-                <div class="col-md-12">
-                <label for="username">Username:</label><br>
-                <input type="text" name="username" id="username" required>
-                </div>
-            </div>
-        </div>
+					<label for="chk" aria-hidden="true">Register</label>
 
-        <div class="form-group">
-            <label for="email">Email:</label><br>
-            <input type="text" name="email" id="email" required>
-        </div>
+					<input type="username" name="username" id="username" placeholder="Username" required="">
 
-        <div class="form-group">
-            <div class="form-row">
-                <div class="col-md-6">
-                <label for="password">Password:</label><br>
-                <input type="password" name="password" id="password" required>
-                </div>
-                <div class="col-md-6">
-                <label for="password2">Confirm Password:</label><br>
-                <input type="password" name="password2" id="password2" required>
-                </div>
-            </div>
-        </div>
-       
-        <button type="submit" class="btn btn-primary btn-block" name="signup">Register</button>
-       
-    </form>
+                    <input type="email" name="email" id="email" placeholder="email" required="">
 
-    <div class="text-center">
-        <a class="d-block small mt-3" href="userlogin.php"></a>
-    </div>
-        </div>
-        </div>
-    </div>
-    
-     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+					<input type="password" name="password" id="password" placeholder="Password" required="">
 
+                    <input type="password" name="password2" id="password2" placeholder="Confirm Password" required="">
+
+					<button type="submit" name="signup">Register</button>
+				</form>
+			</div>
+	</div>
 </body>
-
 </html>
 

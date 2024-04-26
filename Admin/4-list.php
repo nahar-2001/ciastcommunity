@@ -1,6 +1,6 @@
 <?php
 // Panggil fail function
-require_once '../functions.php';
+require_once 'functions.php';
 
 session_start();
 
@@ -23,10 +23,10 @@ $pelajar = ambildata($condb, 'SELECT * FROM pelajar');
 </head>
 
 <body>
-<?php require_once 'header.php'?>
+<?php require_once 'header.php';?>
     <h1>Senarai Pelajar</h1>
 
-    <a href="3-add.php">Daftar Pelajar</a>
+    <button class="btn btn-primary"><a href="3-add.php" style="text-decoration: none; color:white;">Daftar Pelajar</a></button>
     <br><br>
 
     <form action="" method="post">
