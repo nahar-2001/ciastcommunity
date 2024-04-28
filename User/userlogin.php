@@ -147,6 +147,7 @@ button:hover{
 
 					<button type="submit" name="login">Login</button>
 				</form>
+				<a href="../index.php" style="text-decoration: none; color:white;"><button>Back</button></a>
 			</div>
 	</div>
 </body>

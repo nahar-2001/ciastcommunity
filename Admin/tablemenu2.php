@@ -75,7 +75,7 @@ table, th, td {
 <body> 
  
 <h2>MENU MAKAN & MINUM DI DEWAN MAKAN</h2> 
-<p>MINGGU 1:</p> 
+<p>MINGGU 2:</p> 
  
 <table style="width: 100%;"> 
   <colgroup> 

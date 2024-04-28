@@ -22,15 +22,14 @@ function ambildata($condb, $query)
     return $rows;
 }
 
-function register($condb, $data)
+function adminlog($condb, $data)
 {
     $username = strtolower(stripslashes($data['username']));
-    $email = strtolower(stripslashes($data['email']));
     $password = mysqli_real_escape_string($condb, $data['password']);
-    $repeatPassword = mysqli_real_escape_string($condb, $data['password2']);
+
 
     // Cek existing user
-    $result = mysqli_query($condb, "SELECT username FROM login WHERE username = '$username'");
+    $result = mysqli_query($condb, "SELECT username FROM adminlogin WHERE username = '$username'");
 
     if (mysqli_fetch_assoc($result)) {
 
@@ -41,18 +40,18 @@ function register($condb, $data)
     }
 
     // Cek pengesahan password
-    if ($password != $repeatPassword) {
-        echo "<script>
-                alert('Password tidak sama!') 
-            </script>";
-        return false;
-    }
+    // if ($password != $repeatPassword) {
+    //     echo "<script>
+    //             alert('Password tidak sama!') 
+    //         </script>";
+    //     return false;
+    // }
 
     // Encrypt password
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     // Tambah user ke dalam database
-    $query = mysqli_query($condb, "INSERT INTO login VALUES('', '$username','$email', '$password')");
+    $query = mysqli_query($condb, "INSERT INTO adminlogin VALUES('', '$username', '$password')");
 
     return mysqli_affected_rows($condb);
 }

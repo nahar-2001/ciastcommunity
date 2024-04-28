@@ -9,35 +9,42 @@ if (isset($_SESSION['submit'])) {
 	exit;
 }
 
-if (isset($_POST["submit"]) ) {
-    if($_POST["username"] == "admin" && $_POST["password"] == "123") {
 
-        // set session
-        $_SESSION['submit'] = true;
-        header("location: 2-admindashboard.php");
-        exit;
-    }else {
-        $error = true;
-    }
-}
+// if (isset($_POST["submit"]) ) {
+//     if($_POST["username"] == "admin" && $_POST["password"] == "123") {
 
-// if (isset($_POST['submit'])) {
-// 	// var_dump($_POST);die;
-// 	$username = $_POST['username'];
-// 	$password = $_POST['password'];
-
-// 	$result = mysqli_query($condb, "SELECT * FROM adminlogin WHERE username = '$username'");
-
-// 	if (mysqli_num_rows($result) === 1) {
-
-// 		$row = mysqli_fetch_assoc($result);
-// 		if (password_verify($password, $row['password'])) {
-// 			$_SESSION['submit'] = true;
-// 			header("location: 2-admindashboard.php");
-// 		}
-// 	}
-// 	$error = true;
+//         // set session
+//         $_SESSION['submit'] = true;
+//         header("location: 2-admindashboard.php");
+//         exit;
+//     }else {
+//         $error = true;
+//     }
 // }
+
+
+
+if (isset($_POST['submit'])) {
+	// var_dump($_POST);die;
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+
+	$result = mysqli_query($condb, "SELECT * FROM adminlogin WHERE username = '$username'");
+
+	if (mysqli_num_rows($result) === 1) {
+
+		$row = mysqli_fetch_assoc($result);
+		if (password_verify($password, $row['password'])) {
+			$_SESSION['submit'] = true;
+			header("location: 2-admindashboard.php");
+		}
+	}
+	$error = true;
+
+	$password = password_hash($password, PASSWORD_DEFAULT);
+
+
+}
 ?>
 
 
@@ -173,7 +180,9 @@ if (isset($_POST["submit"]) ) {
 				<input type="password" name="password" id="password" placeholder="Password" required="">
 
 				<button type="submit" name="submit">Login</button>
+				
 			</form>
+			<a href="../index.php" style="text-decoration: none; color:white;"><button>Back</button></a>
 		</div>
 	</div>
 </body>

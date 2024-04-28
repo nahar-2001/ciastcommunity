@@ -74,7 +74,7 @@ input{
 }
 button{
 	width: 60%;
-	height: 40px;
+	height: 30px;
 	margin: 10px auto;
 	justify-content: center;
 	display: block;
@@ -136,7 +136,9 @@ button:hover{
 
 					<button type="submit" name="signup">Register</button>
 				</form>
+				<a href="../index.php" style="text-decoration: none; color:white;"><button>Back</button></a>
 			</div>
+			
 	</div>
 </body>
 </html>

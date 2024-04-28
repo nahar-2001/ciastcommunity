@@ -137,6 +137,7 @@ html {
 <div class="row">
   <div class="col-3 col-s-3 menu">
     <ul>
+      <a href="tblsubadmin.php" style="text-decoration: none;"><li>Admins</li></a>
       <a href="4-list.php" style="text-decoration: none;"><li>Student Information</li></a>
       <a href="8-news.php" style="text-decoration: none;"><li>News</li></a>
       <a href="12-sports.php" style="text-decoration: none;"><li>Sports</li></a>
