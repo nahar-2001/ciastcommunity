@@ -22,6 +22,41 @@ function ambildata($condb, $query)
     return $rows;
 }
 
+function register($condb, $data)
+{
+    $username = strtolower(stripslashes($data['username']));
+    $email = strtolower(stripslashes($data['email']));
+    $password = mysqli_real_escape_string($condb, $data['password']);
+    $repeatPassword = mysqli_real_escape_string($condb, $data['password2']);
+
+    // Cek existing user
+    $result = mysqli_query($condb, "SELECT username FROM login WHERE username = '$username'");
+
+    if (mysqli_fetch_assoc($result)) {
+
+        echo "<script>
+                alert('Username sudah digunakan!');
+              </script>";
+        return false;
+    }
+
+    // Cek pengesahan password
+    if ($password != $repeatPassword) {
+        echo "<script>
+                alert('Password tidak sama!') 
+            </script>";
+        return false;
+    }
+
+    // Encrypt password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    // Tambah user ke dalam database
+    $query = mysqli_query($condb, "INSERT INTO login VALUES('', '$username','$email', '$password')");
+
+    return mysqli_affected_rows($condb);
+}
+
 /// Fungsi daftar pelajar
 function daftar($condb, $reports)
 {
@@ -157,7 +192,6 @@ function padampelajar($condb, $id)
     mysqli_query($condb, "DELETE FROM pelajar WHERE id = $id");
 
     return mysqli_affected_rows($condb);
-
 }
 
 
@@ -221,18 +255,18 @@ function cari($condb, $keyword)
 function news($condb, $posts)
 {
     // Simpan setiap data dari post $data ke dalam variables
-    
+
     $ptitle = htmlspecialchars($posts['ptitle']);
     $pdetails = htmlspecialchars($posts['pdetails']);
-    
+
 
     $gambar = uploads($condb, $ptitle);
-    if(!$gambar){
+    if (!$gambar) {
         return false;
     }
 
     $gambar2 = uploads1($condb, $ptitle);
-    if(!$gambar2){
+    if (!$gambar2) {
         return false;
     }
 
@@ -279,7 +313,6 @@ function deletenews($condb, $id)
     mysqli_query($condb, "DELETE FROM reports WHERE id = $id");
 
     return mysqli_affected_rows($condb);
-
 }
 
 function uploads()
@@ -411,12 +444,12 @@ function editnews($condb, $edit)
 function sports($condb, $posts)
 {
     // Simpan setiap data dari post $data ke dalam variables
-    
+
     $comments = htmlspecialchars($posts['comments']);
-    
+
 
     $gambar = uploads();
-    if(!$gambar){
+    if (!$gambar) {
         return false;
     }
 
@@ -490,18 +523,17 @@ function deletesports($condb, $id)
     mysqli_query($condb, "DELETE FROM sports WHERE id = $id");
 
     return mysqli_affected_rows($condb);
-
 }
 
 function menu($condb, $posts)
 {
     // Simpan setiap data dari post $data ke dalam variables
-    
+
     $comments = htmlspecialchars($posts['comments']);
-    
+
 
     $gambar = uploads();
-    if(!$gambar){
+    if (!$gambar) {
         return false;
     }
 
@@ -546,6 +578,23 @@ function deletemenu($condb, $id)
     mysqli_query($condb, "DELETE FROM menu WHERE id = $id");
 
     return mysqli_affected_rows($condb);
-
 }
 
+
+function addmenu($condb, $posts)
+{
+    $cmenu = $posts['cmenu'];
+    $menu = htmlspecialchars($posts['menu']);
+
+    $query = "INSERT INTO lmenu
+    VALUES
+    
+    ('',
+    '$cmenu',
+    '$menu'
+    )";
+
+    mysqli_query($condb, $query);
+
+    return mysqli_affected_rows($condb);
+}

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once 'functions.php';
 
@@ -17,59 +17,67 @@ $news = ambildata($condb, 'SELECT * FROM reports');
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View News</title>
 </head>
+
 <body>
-<?php require_once 'header.php';?>
+    <?php require_once 'header.php'; ?>
 
 
-<h1>VIEW NEWS</h1>
+    <h1>VIEW NEWS</h1>
 
-<button class="btn btn-primary"><a href="8-news.php" style="text-decoration: none; color:white">Back To News</a></button>
-<br><br>
+    <button class="btn btn-primary"><a href="8-news.php" style="text-decoration: none; color:white">Back To News</a></button>
+    <br><br>
+
+    <button id="printPageButton" class="btn btn-primary" onclick="window.print()">
+        <i class="fas fa-print"></i> Print
+    </button>
+    <br><br>
 
     <form action="" method="post">
 
-    <table border="1" cellpadding="10" cellspacing="0">
+        <table border="1" cellpadding="10" cellspacing="0">
 
-<tr>
-    <th>No.</th>
-    <th>Post Title</th>
-    <th>Post Details</th>
-    <th>Picture</th>
-    <th>Picture</th>
-    <th>Settings</th>
-</tr>
+            <tr>
+                <th>No.</th>
+                <th>Post Title</th>
+                <th>Post Details</th>
+                <th>Picture</th>
+                <th>Picture</th>
+                <th>Settings</th>
+            </tr>
 
-<?php $i = 1; ?>
-<?php foreach ($news as $row) : ?>
-    <!-- <?php var_dump($row); ?> -->
-    <tr>
-        <td>
-            <?= $i; ?>
-        </td>
-        <td>
-            <?= $row['ptitle'] ?>
-        </td>
-        <td>
-            <?= $row['pdetails'] ?>
-        </td>
-        <td><img src="../img/<?= $row['gambar']; ?>" width="45px"></td>
-        <td><img src="../img/<?= $row['gambar2']; ?>" width="45px"></td>
-        <td>
-            <a href="9-editnews.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/edit.png"></a>
-            <a href="10-deletenews.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['ptitle'] ?>?');"><img width="25px" src="../img/delete.png"></a>
-        </td>
-    </tr>
-    <?php $i++; ?>
-<?php endforeach; ?>
+            <?php $i = 1; ?>
+            <?php foreach ($news as $row) : ?>
+                <!-- <?php var_dump($row); ?> -->
+                <tr>
+                    <td>
+                        <?= $i; ?>
+                    </td>
+                    <td>
+                        <?= $row['ptitle'] ?>
+                    </td>
+                    <td>
+                        <?= $row['pdetails'] ?>
+                    </td>
+                    <td><img src="../img/<?= $row['gambar']; ?>" width="45px"></td>
+                    <td><img src="../img/<?= $row['gambar2']; ?>" width="45px"></td>
+                    <td>
+                        <a href="9-editnews.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/edit.png"></a>
+                        <a href="10-deletenews.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['ptitle'] ?>?');"><img width="25px" src="../img/delete.png"></a>
+                    </td>
+                </tr>
+                <?php $i++; ?>
+            <?php endforeach; ?>
 
-</table>
+        </table>
 
 
     </form>
 </body>
+
 </html>

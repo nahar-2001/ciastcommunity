@@ -28,7 +28,7 @@ if (isset($_POST['login'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin Login</title>
+	<title>User Login</title>
 	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 <style>
