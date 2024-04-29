@@ -1,31 +1,113 @@
+<?php
+require_once 'userfunctions.php';
+
+$reports = ambildata($condb, "SELECT * FROM reports");
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ciast Community</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>HOMEPAGE</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
-    body {font-family:"Times New Roman", serif}
-    h1,h2,h3,h4,h5,h6 {font-family:serif; letter-spacing:10px}
+        /* Gambar */
+        .gambar-section {
+            padding-top: 110px;
+            /* Sesuaikan dengan tinggi navbar */
+            padding-bottom: 50px;
+            /* Sesuaikan dengan kebutuhan */
+        }
+
+        .card {
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
     </style>
 </head>
+
 <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand me-auto" href="index.php">Ciastcommunity</a>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" aria-current="page" href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="1-aktivitiumum.php">Laporan Aktiviti</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="tablemenu1.php">Dewan Makan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="tablesports.php">Sukan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="contactus.php">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="Admin/1-adminlogin.php"><button type="button" class="btn btn-primary">Admin</button></a>
+            <button class="navbar-toggler pe-8" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <!-- Gambar -->
+    <!-- Gambar -->
+    <div class="gambar-section">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <?php foreach ($reports as $row) : ?>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="img/<?= $row['gambar']; ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $row['ptitle']; ?></h5>
+                                <a href="1-aktivitiumum.php" class="btn btn-primary">Lihat Selanjutnya</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+    <!-- End Gambar -->
 
-<div class="w3-top w3-bar w3-white w3-padding w3-card w3-wide">
-<a href="#home" class="w3-bar-item w3-button">WELCOME TO CIAST COMMUNITY</a>
-
-<div class="w3-right w3-hide-small">
-<a href="Admin/1-adminlogin.php" class="w3-bar-item w3-button">ADMIN</a>
-<a href="User/userlogin.php" class="w3-bar-item w3-button">LOGIN</a>
-<a href="User/usersignup.php" class="w3-bar-item w3-button">REGISTER</a>
-</div>
-</div>
-
-<div id="home" class="w3-content">
-
-<img src="img/ciastbackground.jpg" alt="Catering" style="width: 100%">
-
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

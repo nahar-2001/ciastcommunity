@@ -140,8 +140,10 @@ html {
       <a href="tblsubadmin.php" style="text-decoration: none;"><li>Admins</li></a>
       <a href="4-list.php" style="text-decoration: none;"><li>Student Information</li></a>
       <a href="8-news.php" style="text-decoration: none;"><li>News</li></a>
-      <a href="12-sports.php" style="text-decoration: none;"><li>Sports</li></a>
-      <a href="16-menu.php" style="text-decoration: none;"><li>Foods Menu</li></a>
+      <a href="13-sportspost.php" style="text-decoration: none;"><li>Sports Post</li></a>
+      <a href="addsports.php" style="text-decoration: none;"><li>Add Sports</li></a>
+      <a href="16-menu.php" style="text-decoration: none;"><li>Menu Post</li></a>
+      <a href="addmenu.php" style="text-decoration: none;"><li>Add Menu</li></a>
     </ul>
   </div>
 
@@ -160,9 +162,9 @@ html {
   </div>
 </div>
 
-<div class="footer">
+<!-- <div class="footer">
   <p>Resize the browser window to see how the content respond to the resizing.</p>
-</div>
+</div> -->
 
 </body>
 </html>

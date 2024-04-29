@@ -524,6 +524,52 @@ function deletesports($condb, $id)
     return mysqli_affected_rows($condb);
 }
 
+function addsports($condb, $posts)
+{
+    $category = $posts['category'];
+    $sports = htmlspecialchars($posts['sports']);
+
+    $query = "INSERT INTO lsports
+    VALUES
+    
+    ('',
+    '$category',
+    '$sports'
+    )";
+
+    mysqli_query($condb, $query);
+
+    return mysqli_affected_rows($condb);
+}
+
+function esports($condb, $edit)
+{
+
+    $id = $edit['id'];
+    $category = htmlspecialchars($edit['category']);
+    $sports = htmlspecialchars($edit['sports']);
+
+    // Cek jika ada gambar baru diupload
+    // if ($_FILES['gambar']['error'] === 4) {
+    //     $gambar = $gambarLama;
+    // } else {
+    //     // Run upload function and store the image name in $gambar
+    //     $gambar = upload($condb, $nokp);
+    // }
+
+    // Query UPDATE data ke dalam database
+    $query = "UPDATE lsports SET
+     category = '$category',
+     menu = '$sports'
+
+     WHERE id = $id";
+
+    // Run query
+    mysqli_query($condb, $query);
+
+    return mysqli_affected_rows($condb);
+}
+
 function menu($condb, $posts)
 {
     // Simpan setiap data dari post $data ke dalam variables
@@ -559,6 +605,36 @@ function menu($condb, $posts)
     return mysqli_affected_rows($condb);
 }
 
+function editmenupost($condb, $edit)
+{
+
+    $id = $edit['id'];
+    $gambarLama = htmlspecialchars($edit['gambarLama']);
+    $comments = htmlspecialchars($edit['comments']);
+
+    // Cek jika ada gambar baru diupload
+    if ($_FILES['gambar']['error'] === 4) {
+        $gambar = $gambarLama;
+    } else {
+        // Run upload function and store the image name in $gambar
+        $gambar = uploads($condb, $comments);
+    }
+
+    // Query UPDATE data ke dalam database
+    $query = "UPDATE menu SET
+
+     gambar = '$gambar',
+     comments = '$comments'
+
+     WHERE id = $id";
+
+    // Run query
+    mysqli_query($condb, $query);
+
+    return mysqli_affected_rows($condb);
+}
+
+
 function deletemenu($condb, $id)
 {
 
@@ -582,14 +658,14 @@ function deletemenu($condb, $id)
 
 function addmenu($condb, $posts)
 {
-    $cmenu = $posts['cmenu'];
+    $category = $posts['category$category'];
     $menu = htmlspecialchars($posts['menu']);
 
     $query = "INSERT INTO lmenu
     VALUES
     
     ('',
-    '$cmenu',
+    '$category',
     '$menu'
     )";
 
@@ -597,3 +673,86 @@ function addmenu($condb, $posts)
 
     return mysqli_affected_rows($condb);
 }
+
+function padammenu($condb, $id)
+{
+
+    // Get the gambar from the pelajar record
+    $query = "SELECT menu FROM lmenu WHERE id = $id";
+    $result = mysqli_query($condb, $query);
+    $row = mysqli_fetch_assoc($result);
+    // $imgName = $row['gambar'];
+
+    // Delete the image associated with the nokp
+    // $imgDir = '../img/';
+    // $imgFile = $imgDir . $imgName;
+    // unlink($imgFile);
+
+    // Delete the record from the database
+    mysqli_query($condb, "DELETE FROM lmenu WHERE id = $id");
+
+    return mysqli_affected_rows($condb);
+}
+
+function editmenu($condb, $edit)
+{
+
+    $id = $edit['id'];
+    $category = htmlspecialchars($edit['category']);
+    $menu = htmlspecialchars($edit['menu']);
+
+    // Cek jika ada gambar baru diupload
+    // if ($_FILES['gambar']['error'] === 4) {
+    //     $gambar = $gambarLama;
+    // } else {
+    //     // Run upload function and store the image name in $gambar
+    //     $gambar = upload($condb, $nokp);
+    // }
+
+    // Query UPDATE data ke dalam database
+    $query = "UPDATE lmenu SET
+     category = '$category',
+     menu = '$menu'
+
+     WHERE id = $id";
+
+    // Run query
+    mysqli_query($condb, $query);
+
+    return mysqli_affected_rows($condb);
+}
+
+// function carimenu($condb, $keyword)
+// {
+//     $query = "SELECT * FROM lmenu WHERE 
+//     menu LIKE '%$keyword%' OR
+//     ";
+
+//     // Recall ambildata function to execute the query and retrieve results
+//     $rows = ambildata($condb, $query);
+
+//     // Process the $rows data
+//     return $rows;
+// }
+
+function deleteadmin($condb, $id)
+{
+
+    // Get the gambar from the pelajar record
+    $query = "SELECT username FROM adminlogin WHERE id = $id";
+    $result = mysqli_query($condb, $query);
+    $row = mysqli_fetch_assoc($result);
+    // $imgName = $row['gambar'];
+
+    // // Delete the image associated with the nokp
+    // $imgDir = '../img/';
+    // $imgFile = $imgDir . $imgName;
+    // unlink($imgFile);
+
+    // Delete the record from the database
+    mysqli_query($condb, "DELETE FROM adminlogin WHERE id = $id");
+
+    return mysqli_affected_rows($condb);
+}
+
+

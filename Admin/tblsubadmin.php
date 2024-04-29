@@ -48,8 +48,7 @@ $admin = ambildata($condb, 'SELECT * FROM adminlogin');
                     <?= $row['username'] ?>
                 </td>
                 <td>
-                    <a href="?id=<?= $row['id'] ?>"><img width="25px" src="../img/edit.png"></a>
-                    <a href="?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['username'] ?>?');"><img width="25px" src="../img/delete.png"></a>
+                    <a href="deleteadmin.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['username'] ?>?');"><img width="25px" src="../img/delete.png"></a>
                 </td>
             </tr>
             <?php $i++; ?>

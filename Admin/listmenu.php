@@ -2,12 +2,12 @@
 // Panggil fail function
 require_once 'functions.php';
 
-// session_start();
+session_start();
 
-// if (!isset($_SESSION['submit'])) {
-//     header('Location: 1-adminlogin.php');
-//     exit;
-// }
+if (!isset($_SESSION['submit'])) {
+    header('Location: 1-adminlogin.php');
+    exit;
+}
 
 $menu = ambildata($condb, 'SELECT * FROM lmenu');
 
@@ -26,12 +26,11 @@ $menu = ambildata($condb, 'SELECT * FROM lmenu');
 <?php require_once 'header.php';?>
     <h1>List Menu</h1>
 
-    <button class="btn btn-primary"><a href="addmenu.php" style="text-decoration: none; color:white;">Add Menu</a></button>
+    <a href="addmenu.php" style="text-decoration: none; color:white;"><button class="btn btn-primary">Add Menu</button></a>
     <br><br>
 
-    <button class="btn btn-primary"><a href="tablemenu1.php" style="text-decoration: none; color:white;">Table Menu</a></button>
+    <a href="tablemenu1.php" style="text-decoration: none; color:white;"><button class="btn btn-primary">Table Menu</button></a>
     <br><br>
-
 
     <table border="1" cellpadding="10" cellspacing="0">
 
@@ -53,10 +52,10 @@ $menu = ambildata($condb, 'SELECT * FROM lmenu');
                 <td>
                     <?= $row['menu'] ?>
                 </td>
-                <!-- <td>
-                    <a href="5-edit.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/edit.png"></a>
-                    <a href="6-delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['fname'] . ' ' . $row['lname'] ?>?');"><img width="25px" src="../img/delete.png"></a>
-                </td> -->
+                <td>
+                    <a href="editmenu.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/edit.png"></a>
+                    <a href="dltmenu.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['menu']?>?');"><img width="25px" src="../img/delete.png"></a>
+                </td>
             </tr>
             <?php $i++; ?>
         <?php endforeach; ?>

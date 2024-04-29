@@ -79,7 +79,8 @@ if (isset($_POST['submit'])) {
             <br>
             <li>
                 <label for="pdetails">News Details:</label><br>
-                <input type="text" name="pdetails" id="pdetails" required value="<?= $pdetails ?>">
+                <!-- <input type="text" name="pdetails" id="pdetails" required value="<?= $pdetails ?>"> -->
+                <textarea name="pdetails" id="pdetails" cols="30" rows="10"><?= $pdetails ?></textarea>
             </li>
             <br>
             <button type="submit" name="submit">Update</button>

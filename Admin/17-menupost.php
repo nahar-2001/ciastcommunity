@@ -63,7 +63,8 @@ $menu = ambildata($condb, 'SELECT * FROM menu');
                         <?= $row['comments'] ?> 
                     </td>
                     <td> 
-                        <a href="18-deletemenu.php?id=<?= $row['id'] ?>" onclick="return confirm('Are You Sure To Delete This Post!!! ?');"><img width="25px" src="../img/delete.png"></a>
+                    <a href="19-emenupost.php?id="><img width="25px" src="../img/edit.png"></a>
+                    <a href="18-deletemenu.php?id=<?= $row['id'] ?>" onclick="return confirm('Are You Sure To Delete This Post!!! ?');"><img width="25px" src="../img/delete.png"></a>
                     </td>
                 </tr>
                 <?php $i++; ?>

@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
 
 <button class="btn btn-primary"><a href="listmenu.php" style="text-decoration: none; color:white;">List Menu</a></button>
 <br><br>
-<button class="btn btn-primary"><a href="tablemenu.php" style="text-decoration: none; color:white;">Table Menu</a></button>
+<button class="btn btn-primary"><a href="tblmenu1.php" style="text-decoration: none; color:white;">Table Menu</a></button>
 <br><br>
 
 <form action="" method="POST" enctype="multipart/form-data">

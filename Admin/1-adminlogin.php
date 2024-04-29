@@ -10,17 +10,17 @@ if (isset($_SESSION['submit'])) {
 }
 
 
-// if (isset($_POST["submit"]) ) {
-//     if($_POST["username"] == "admin" && $_POST["password"] == "123") {
+if (isset($_POST["submit"]) ) {
+    if($_POST["username"] == "admin" && $_POST["password"] == "123") {
 
-//         // set session
-//         $_SESSION['submit'] = true;
-//         header("location: 2-admindashboard.php");
-//         exit;
-//     }else {
-//         $error = true;
-//     }
-// }
+        // set session
+        $_SESSION['submit'] = true;
+        header("location: 2-admindashboard.php");
+        exit;
+    }else {
+        $error = true;
+    }
+}
 
 
 

@@ -66,7 +66,8 @@ if (isset($_POST['submit'])) {
             <br>
             <li>
                 <label for="comments">Comments:</label><br>
-                <input type="text" name="comments" id="comments" required value="<?= $comments ?>">
+                <!-- <input type="text" name="comments" id="comments" required value="<?= $comments ?>"> -->
+                <textarea name="comments" id="comments" cols="30" rows="10"><?= $comments ?></textarea>
             </li>
             <br>
             <button type="submit" name="submit">Update</button>
