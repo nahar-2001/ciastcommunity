@@ -8,6 +8,44 @@ $query2 = ambildata($condb, "SELECT * FROM lmenu WHERE category = 'Tengahhari'")
 $query3 = ambildata($condb, "SELECT * FROM lmenu WHERE category = 'Petang'");
 $query4 = ambildata($condb, "SELECT * FROM lmenu WHERE category = 'Malam'");
 
+// Fetch distinct meal categories from the m1 table
+$categories_query = ambildata($condb, 'SELECT DISTINCT category FROM m1');
+$categories = array_column($categories_query, 'category');
+
+// Define the days of the week
+$days_of_week = ['Isnin', 'Selasa', 'Rabu', 'Khamis', 'Jumaat', 'Sabtu', 'Ahad'];
+
+// Fetch menu items for each category from the lmenu table (DROPDOWN)
+$menu_items_by_category = [];
+foreach ($categories as $category) {
+    $query = "SELECT id, menu FROM lmenu WHERE category = '$category'";
+    $menu_items_by_category[$category] = ambildata($condb, $query);
+}
+
+// Fetch idmenu for each category and day from the m1 table (TABLE)
+$idmenu_by_category_and_day = [];
+foreach ($categories as $category) {
+    foreach ($days_of_week as $day) {
+        $query = "SELECT idmenu FROM m1 WHERE category = '$category' AND hari = '$day'";
+        $result = ambildata($condb, $query);
+        $idmenu_by_category_and_day[$category][$day] = $result[0]['idmenu'] ?? '';
+    }
+}
+
+// Process Form Submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    foreach ($_POST['menu'] as $day => $categories) {
+        foreach ($categories as $category => $menu_id) {
+            // Update m1 table
+            $query = "UPDATE m1 SET idmenu = '$menu_id' WHERE hari = '$day' AND category = '$category'";
+            jalankanquery($condb, $query);
+        }
+    }
+    // Optional: Redirect to a confirmation page or reload the current page to reflect changes
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    exit;
+}
+
 
 ?>
 
@@ -60,14 +98,12 @@ $query4 = ambildata($condb, "SELECT * FROM lmenu WHERE category = 'Malam'");
                 <th>No.</th>
                 <th>Menu</th>
             </tr>
-            <?php $i = 1; ?>
             <?php foreach ($query1 as $row) : ?>
-                <tr>
-                    <td><?= $i; ?></td>
-                    <td><?= $row['menu'] ?></td>
-                </tr>
-                <?php $i++; ?>
-            <?php endforeach; ?>
+            <tr>
+                <td><?= $row['id'] ?></td>
+                <td><?= $row['menu'] ?></td>
+            </tr>
+        <?php endforeach; ?>
         </table>
     </div>
     
@@ -80,13 +116,11 @@ $query4 = ambildata($condb, "SELECT * FROM lmenu WHERE category = 'Malam'");
             <th>No.</th>
             <th>Menu</th>
         </tr>
-        <?php $i = 1; ?>
         <?php foreach ($query2 as $row) : ?>
             <tr>
-                <td><?= $i; ?></td>
+                <td><?= $row['id'] ?></td>
                 <td><?= $row['menu'] ?></td>
             </tr>
-            <?php $i++; ?>
         <?php endforeach; ?>
     </table>
     </div>
@@ -102,13 +136,11 @@ $query4 = ambildata($condb, "SELECT * FROM lmenu WHERE category = 'Malam'");
             <th>No.</th>
             <th>Menu</th>
         </tr>
-        <?php $i = 1; ?>
         <?php foreach ($query3 as $row) : ?>
             <tr>
-                <td><?= $i; ?></td>
+                <td><?= $row['id'] ?></td>
                 <td><?= $row['menu'] ?></td>
             </tr>
-            <?php $i++; ?>
         <?php endforeach; ?>
     </table>
     </div>
@@ -121,13 +153,11 @@ $query4 = ambildata($condb, "SELECT * FROM lmenu WHERE category = 'Malam'");
             <th>No.</th>
             <th>Menu</th>
         </tr>
-        <?php $i = 1; ?>
         <?php foreach ($query4 as $row) : ?>
             <tr>
-                <td><?= $i; ?></td>
+                <td><?= $row['id'] ?></td>
                 <td><?= $row['menu'] ?></td>
             </tr>
-            <?php $i++; ?>
         <?php endforeach; ?>
     </table>
     </div>
@@ -136,14 +166,34 @@ $query4 = ambildata($condb, "SELECT * FROM lmenu WHERE category = 'Malam'");
 
 
     <form action="" method="post">
-
-            
-
-
-
-
-
+        <table>
+            <tr>
+                <th>HARI / MASA</th>
+                <?php foreach ($categories as $category) : ?>
+                    <th><?= $category ?></th>
+                <?php endforeach; ?>
+            </tr>
+            <?php foreach ($days_of_week as $day) : ?>
+                <tr>
+                    <td><?= $day ?></td>
+                    <?php foreach ($categories as $category) : ?>
+                        <td>
+                            <select name="menu[<?= $day ?>][<?= $category ?>]">
+                                <option value="">Select Menu</option>
+                                <?php foreach ($menu_items_by_category[$category] as $menu_item) : ?>
+                                    <option value="<?= $menu_item['id'] ?>" <?= ($menu_item['id'] == $idmenu_by_category_and_day[$category][$day]) ? 'selected' : '' ?>>
+                                        <?= $menu_item['id'] ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                    <?php endforeach; ?>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+        <input type="submit" value="Save Changes">
     </form>
+
 
 
 

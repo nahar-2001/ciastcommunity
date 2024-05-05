@@ -835,3 +835,9 @@ function insertm4($condb, $posts)
     return mysqli_affected_rows($condb);
 }
 
+function jalankanquery($pdo, $query) {
+    $stmt = $pdo->prepare($query);
+    return $stmt->execute();
+}
+
+
