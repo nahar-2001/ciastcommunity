@@ -23,7 +23,7 @@ $sports = ambildata($condb, 'SELECT * FROM lsports');
 </head>
 
 <body>
-<?php require_once 'header.php';?>
+    <?php require_once 'header.php'; ?>
     <h1>List Sports</h1>
 
     <a href="addsports.php" style="text-decoration: none; color:white;"><button class="btn btn-primary">Add Sports</button></a>
@@ -53,8 +53,9 @@ $sports = ambildata($condb, 'SELECT * FROM lsports');
                     <?= $row['sports'] ?>
                 </td>
                 <td>
-                    <a href="esports.php"><img width="25px" src="../img/edit.png"></a>
-                    <a href="dltsports.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['sports']?>?');"><img width="25px" src="../img/delete.png"></a>
+                    <!-- <a href=""><span class="badge text-bg-primary">View</span></a> -->
+                    <a href="esports.php?id=<?= $row['id'] ?>"><span class="badge rounded-pill text-bg-success">Edit</span></a>
+                    <a href="dltsports.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['sports'] ?>?');"><span class="badge rounded-pill text-bg-danger">Delete</span></a>
                 </td>
             </tr>
             <?php $i++; ?>

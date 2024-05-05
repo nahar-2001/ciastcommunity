@@ -22,6 +22,8 @@ $news = ambildata($condb, 'SELECT * FROM reports');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View News</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-icons-1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -67,8 +69,9 @@ $news = ambildata($condb, 'SELECT * FROM reports');
                     <td><img src="../img/<?= $row['gambar']; ?>" width="45px"></td>
                     <td><img src="../img/<?= $row['gambar2']; ?>" width="45px"></td>
                     <td>
-                        <a href="9-editnews.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/edit.png"></a>
-                        <a href="10-deletenews.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['ptitle'] ?>?');"><img width="25px" src="../img/delete.png"></a>
+                        <a href=""><span class="badge text-bg-primary">View</span></a>
+                        <a href="9-editnews.php?id=<?= $row['id'] ?>"><span class="badge rounded-pill text-bg-success">Edit</span></a>
+                        <a href="10-deletenews.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['ptitle'] ?>?');"><span class="badge rounded-pill text-bg-danger">Delete</span></a>
                     </td>
                 </tr>
                 <?php $i++; ?>
@@ -78,6 +81,7 @@ $news = ambildata($condb, 'SELECT * FROM reports');
 
 
     </form>
+    <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

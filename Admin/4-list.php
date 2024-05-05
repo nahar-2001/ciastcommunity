@@ -23,7 +23,7 @@ $pelajar = ambildata($condb, 'SELECT * FROM pelajar');
 </head>
 
 <body>
-<?php require_once 'header.php';?>
+    <?php require_once 'header.php'; ?>
     <h1>Senarai Pelajar</h1>
 
     <button class="btn btn-primary"><a href="3-add.php" style="text-decoration: none; color:white;">Daftar Pelajar</a></button>
@@ -67,8 +67,9 @@ $pelajar = ambildata($condb, 'SELECT * FROM pelajar');
                     <?= $row['kursus'] ?>
                 </td>
                 <td>
-                    <a href="5-edit.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/edit.png"></a>
-                    <a href="6-delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['fname'] . ' ' . $row['lname'] ?>?');"><img width="25px" src="../img/delete.png"></a>
+                    <a href="4.1-view.php?id=<?= $row['id'] ?>"><span class="badge text-bg-primary">View</span></a>
+                    <a href="5-edit.php?id=<?= $row['id'] ?>"><span class="badge rounded-pill text-bg-success">Edit</span></a>
+                    <a href="6-delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['fname'] ?>?');"><span class="badge rounded-pill text-bg-danger">Delete</span></a>
                 </td>
             </tr>
             <?php $i++; ?>

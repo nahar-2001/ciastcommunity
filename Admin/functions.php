@@ -658,7 +658,7 @@ function deletemenu($condb, $id)
 
 function addmenu($condb, $posts)
 {
-    $category = $posts['category$category'];
+    $category = $posts['category'];
     $menu = htmlspecialchars($posts['menu']);
 
     $query = "INSERT INTO lmenu
@@ -755,4 +755,83 @@ function deleteadmin($condb, $id)
     return mysqli_affected_rows($condb);
 }
 
+function insertm1($condb, $posts)
+{
+    $hari = htmlspecialchars($posts['hari']);
+    $category = $posts['category'];
+    
+
+    $query = "INSERT INTO m1
+    VALUES
+    
+    ('',
+    '$hari',
+    '$category',
+    ''
+    )";
+
+    mysqli_query($condb, $query);
+
+    return mysqli_affected_rows($condb);
+}
+
+function insertm2($condb, $posts)
+{
+    $hari = htmlspecialchars($posts['hari']);
+    $category = $posts['category'];
+    
+
+    $query = "INSERT INTO m2
+    VALUES
+    
+    ('',
+    '$hari',
+    '$category',
+    ''
+    )";
+
+    mysqli_query($condb, $query);
+
+    return mysqli_affected_rows($condb);
+}
+
+function insertm3($condb, $posts)
+{
+    $hari = htmlspecialchars($posts['hari']);
+    $category = $posts['category'];
+    
+
+    $query = "INSERT INTO m3
+    VALUES
+    
+    ('',
+    '$hari',
+    '$category',
+    ''
+    )";
+
+    mysqli_query($condb, $query);
+
+    return mysqli_affected_rows($condb);
+}
+
+function insertm4($condb, $posts)
+{
+    $hari = htmlspecialchars($posts['hari']);
+    $category = $posts['category'];
+    
+
+    $query = "INSERT INTO m4
+    VALUES
+    
+    ('',
+    '$hari',
+    '$category',
+    ''
+    )";
+
+    mysqli_query($condb, $query);
+
+    return mysqli_affected_rows($condb);
+}
 

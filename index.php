@@ -53,7 +53,7 @@ $reports = ambildata($condb, "SELECT * FROM reports");
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand me-auto" href="index.php">Ciastcommunity</a>
+            <a class="navbar-brand me-auto" href="index.php">Welcome To Ciast Community</a>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
@@ -67,15 +67,28 @@ $reports = ambildata($condb, "SELECT * FROM reports");
                         <li class="nav-item">
                             <a class="nav-link mx-lg-2" href="1-aktivitiumum.php">Laporan Aktiviti</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="tablemenu1.php">Dewan Makan</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dewan Makan
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="infodm.php">Info Dewan Makan</a></li>
+                                <li><a class="dropdown-item" href="tablemenu1.php">Jadual Makan</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="tablesports.php">Sukan</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Sukan CIAST
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="infosukan.php">Info Sukan</a></li>
+                                <li><a class="dropdown-item" href="tablesports.php">Jadual Sukan</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link mx-lg-2" href="contactus.php">Contact Us</a>
                         </li>
+                        
                     </ul>
                 </div>
             </div>

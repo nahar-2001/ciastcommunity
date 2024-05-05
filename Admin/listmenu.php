@@ -23,7 +23,7 @@ $menu = ambildata($condb, 'SELECT * FROM lmenu');
 </head>
 
 <body>
-<?php require_once 'header.php';?>
+    <?php require_once 'header.php'; ?>
     <h1>List Menu</h1>
 
     <a href="addmenu.php" style="text-decoration: none; color:white;"><button class="btn btn-primary">Add Menu</button></a>
@@ -53,8 +53,9 @@ $menu = ambildata($condb, 'SELECT * FROM lmenu');
                     <?= $row['menu'] ?>
                 </td>
                 <td>
-                    <a href="editmenu.php?id=<?= $row['id'] ?>"><img width="25px" src="../img/edit.png"></a>
-                    <a href="dltmenu.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['menu']?>?');"><img width="25px" src="../img/delete.png"></a>
+                    <!-- <a href=""><span class="badge text-bg-primary">View</span></a> -->
+                    <a href="editmenu.php?id=<?= $row['id'] ?>"><span class="badge rounded-pill text-bg-success">Edit</span></a>
+                    <a href="dltmenu.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['menu'] ?>?');"><span class="badge rounded-pill text-bg-danger">Delete</span></a>
                 </td>
             </tr>
             <?php $i++; ?>

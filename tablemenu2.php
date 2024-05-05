@@ -2,21 +2,21 @@
 require_once 'Admin/functions.php';
 
 // Fetch menu data from the database
-$menu = ambildata($condb, 'SELECT m1.hari, m1.category, lmenu.menu 
-                             FROM m1 
-                             INNER JOIN lmenu ON m1.idmenu = lmenu.id');
+$menu = ambildata($condb, 'SELECT m2.hari, m2.category, lmenu.menu 
+                             FROM m2 
+                             INNER JOIN lmenu ON m2.idmenu = lmenu.id');
 
 // Initialize arrays to store menu data for each day and meal category
 $menu_data = array();
 
 // Loop through the menu data to organize it by day and meal category
 foreach ($menu as $item) {
-    $hari = $item['hari'];
-    $category = strtolower($item['category']);
-    $menu_item = $item['menu'];
-    
-    // Store the menu item in the respective day and meal category array
-    $menu_data[$hari][$category] = $menu_item;
+  $hari = $item['hari'];
+  $category = strtolower($item['category']);
+  $menu_item = $item['menu'];
+
+  // Store the menu item in the respective day and meal category array
+  $menu_data[$hari][$category] = $menu_item;
 }
 ?>
 
@@ -24,7 +24,11 @@ foreach ($menu as $item) {
 <html>
 
 <head>
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CiastCommunity | Info Dewan Makan</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
   <style>
     * {
       box-sizing: border-box;
@@ -59,13 +63,16 @@ foreach ($menu as $item) {
       margin-top: 7px;
       text-align: center;
     }
-    table{
+
+    table {
       text-align: center;
     }
-    td, td{
+
+    td,
+    td {
       padding: 20px;
     }
-    
+
     @media only screen and (max-width: 620px) {
 
       /* For mobile phones: */
@@ -78,10 +85,56 @@ foreach ($menu as $item) {
   </style>
 </head>
 
-
-
 <body style="font-family:Verdana;color:#aaaaaa;">
 
+  <nav class="navbar navbar-expand-sm fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand me-auto" href="index.php">Welcome To Ciast Community</a>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" aria-current="page" href="index.php">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="1-aktivitiumum.php">Laporan Aktiviti</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dewan Makan
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="infodm.php">Info Dewan Makan</a></li>
+                <li><a class="dropdown-item" href="tablemenu1.php">Jadual Makan</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sukan CIAST
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="infosukan.php">Info Sukan</a></li>
+                <li><a class="dropdown-item" href="tablesports.php">Jadual Sukan</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="contactus.php">Contact Us</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <a href="Admin/1-adminlogin.php"><button type="button" class="btn btn-primary">Admin</button></a>
+      <button class="navbar-toggler pe-8" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+  <br><br><br><br>
 
 
   <div style="background-color:#e5e5e5;padding:15px;text-align:center;">
@@ -113,42 +166,43 @@ foreach ($menu as $item) {
           <th>MINUM PETANG</th>
           <th>MAKAN MALAM</th>
         </tr>
+
+        
         <?php
         // Define the meal categories
         $categories = ['sarapan', 'tengahari', 'petang', 'malam'];
 
-         // Loop through each day of the week
-         foreach ($menu_data as $day => $meals) {
+        // Loop through each day of the week
+        foreach ($menu_data as $day => $meals) {
           echo "<tr>";
           echo "<td><b>$day</b></td>";
-          
+
           // Loop through each meal category
           foreach ($categories as $category) {
-              // Check if the menu data for this day and meal category exists
-              if (isset($meals[$category])) {
-                  // Display the menu item
-                  echo "<td>{$meals[$category]}</td>";
-              } else {
-                  // If no menu data exists, display an empty cell
-                  echo "<td></td>";
-              }
+            // Check if the menu data for this day and meal category exists
+            if (isset($meals[$category])) {
+              // Display the menu item
+              echo "<td>{$meals[$category]}</td>";
+            } else {
+              // If no menu data exists, display an empty cell
+              echo "<td></td>";
+            }
           }
           echo "</tr>";
-      }
-      ?>
-    </table>
-    <button class="btn btn-primary" onclick="printPage()">Print</button>
+        }
+        ?>
+      </table>
+      <button class="btn btn-primary" onclick="printPage()">Print</button>
+    </div>
   </div>
-</div>
-<script>
+
+  <script>
     function printPage() {
       window.print();
     }
   </script>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
-
-
-   
-
-  

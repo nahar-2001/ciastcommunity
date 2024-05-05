@@ -56,15 +56,16 @@ $menu = ambildata($condb, 'SELECT * FROM menu');
                 <!-- <?php var_dump($row); ?> -->
                 <tr>
                     <td>
-                        <?= $i; ?> 
+                        <?= $i; ?>
                     </td>
-                    <td><img src="../img/<?= $row['gambar']; ?>" width="45px"></td> 
-                    <td> 
-                        <?= $row['comments'] ?> 
+                    <td><img src="../img/<?= $row['gambar']; ?>" width="45px"></td>
+                    <td>
+                        <?= $row['comments'] ?>
                     </td>
-                    <td> 
-                    <a href="19-emenupost.php?id="><img width="25px" src="../img/edit.png"></a>
-                    <a href="18-deletemenu.php?id=<?= $row['id'] ?>" onclick="return confirm('Are You Sure To Delete This Post!!! ?');"><img width="25px" src="../img/delete.png"></a>
+                    <td>
+                        <a href=""><span class="badge text-bg-primary">View</span></a>
+                        <a href="?id=<?= $row['id'] ?>"><span class="badge rounded-pill text-bg-success">Edit</span></a>
+                        <a href="18-deletemenu.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['gambar'] ?>?');"><span class="badge rounded-pill text-bg-danger">Delete</span></a>
                     </td>
                 </tr>
                 <?php $i++; ?>
@@ -74,6 +75,6 @@ $menu = ambildata($condb, 'SELECT * FROM menu');
 
 
     </form>
-</body> 
-</html> 
+</body>
 
+</html>

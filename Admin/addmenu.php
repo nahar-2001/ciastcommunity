@@ -45,12 +45,12 @@ if (isset($_POST['submit'])) {
 
 <form action="" method="POST" enctype="multipart/form-data">
    
-<select name="cmenu" id="cmenu" class="form-select" aria-label="Default select example">
+<select name="category" id="category" class="form-select" aria-label="Default select example">
   <option selected>Select The Menu</option>
-  <option value="sarapan">Sarapan</option>
-  <option value="tengahhari">Tengahhari</option>
-  <option value="petang">Petang</option>
-  <option value="malam">Malam</option>
+  <option value="Sarapan">Sarapan</option>
+  <option value="Tengahhari">Tengahhari</option>
+  <option value="Petang">Petang</option>
+  <option value="Malam">Malam</option>
 </select>
 
 <div class="mb-3">
