@@ -63,7 +63,7 @@ $sports = ambildata($condb, 'SELECT * FROM sports');
                         <?= $row['comments'] ?>
                     </td>
                     <td>
-                        <a href=""><span class="badge text-bg-primary">View</span></a>
+                        <a href="13.1-sportsdetails.php?id=<?= $row['id'] ?>"><span class="badge text-bg-primary">View</span></a>
                         <a href="13-sportspost.php?id=<?= $row['id'] ?>"><span class="badge rounded-pill text-bg-success">Edit</span></a>
                         <a href="15-deletesports.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['gambar'] ?>?');"><span class="badge rounded-pill text-bg-danger">Delete</span></a>
                     </td>

@@ -110,7 +110,7 @@ $reports = ambildata($condb, "SELECT * FROM reports");
                             <img src="img/<?= $row['gambar']; ?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $row['ptitle']; ?></h5>
-                                <a href="1-aktivitiumum.php" class="btn btn-primary">Lihat Selanjutnya</a>
+                                <a href="aktivitidetails.php?id=<?= $row['id']?>" class="btn btn-primary">Lihat Selanjutnya</a>
                             </div>
                         </div>
                     </div>

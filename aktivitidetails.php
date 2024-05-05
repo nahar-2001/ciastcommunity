@@ -2,9 +2,17 @@
 
 require_once 'userfunctions.php';
 
+$id = $_GET['id'];
 
-$reports = ambildata($condb, "SELECT * FROM reports");
+$news = ambildata($condb, "SELECT * FROM reports WHERE id = $id");
 
+// $ptitle = $news['ptitle'];
+// $pdetails = $news['pdetails'];
+// $gambar = $news['gambar'];
+// $gambar2 = $news['gambar2'];
+
+// var_dump($news);
+// die;
 
 ?>
 
@@ -71,34 +79,39 @@ $reports = ambildata($condb, "SELECT * FROM reports");
 
     <h1 class="container text-center text-bg-dark rounded-pill">AKTIVITI UMUM</h1>
 
-    <?php foreach ($reports as $row) : ?>
+    <?php foreach ($news as $row) : ?>
         <div class="container-fluid d-flex justify-content-center">
             <div class="card mb-3" style="max-width: 700px;">
                 <div class="row g-0">
                     <div class="col-md-6">
-                        <img src="img/<?= $row['gambar'] ?>" style="max-width: 700px;" class="img-fluid rounded-start" alt="...">
+                        <img src="img/<?= $row['gambar']; ?>" style="max-width: 700px;" class="img-fluid rounded-start" alt="...">
                     </div>
                     <br>
                     <div class="col-md-8">
-                        <img src="img/<?= $row['gambar2'] ?>" style="max-width: 700px;" class="img-fluid rounded-start" alt="...">
+                        <img src="img/<?= $row['gambar2']; ?>" style="max-width: 700px;" class="img-fluid rounded-start" alt="...">
                     </div>
                     <br>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $row['ptitle'] ?></h5>
-                            <p class="card-text"><?= $row['pdetails'] ?></p>
-                            <a href="aktivitidetails.php?id=<?= $row['id']?>" class="btn btn-primary">Lihat Selanjutnya</a>
+                            <h5 class="card-title"><?= $row['ptitle']; ?></h5>
+                            <p class="card-text"><?= $row['pdetails']; ?></p>
+            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="align-items-center d-flex justify-content-center">
-        </div><br>
+        <button class="btn btn-primary" onclick="printPage()">Print</button></div><br>
         
     <?php endforeach; ?>
 
-    
+    <script>
+        function printPage() {
+            window.print();
+        }
+    </script>
+    <br>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 

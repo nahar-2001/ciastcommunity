@@ -33,7 +33,19 @@ $gambar = $pelajar['gambar'];
     <title>Document</title>
 </head>
 <body>
-
+<ul>
+<li><img src="../img/<?= $pelajar['gambar']; ?>" width="100px"></li>
+<br><br>
+<li><?= $pelajar['fname'] . ' ' . $pelajar['lname'] ?></li>
+<br><br>
+<li><?= $pelajar['nokp'] ?></li>
+<br><br>
+<li><?= $pelajar['ndp'] ?></li>
+<br><br>
+<li><?= $pelajar['email'] ?></li>
+<br><br>
+<li><?= $pelajar['kursus'] ?></li>
+</ul>
 
 
 

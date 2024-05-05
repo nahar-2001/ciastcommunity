@@ -63,8 +63,8 @@ $menu = ambildata($condb, 'SELECT * FROM menu');
                         <?= $row['comments'] ?>
                     </td>
                     <td>
-                        <a href=""><span class="badge text-bg-primary">View</span></a>
-                        <a href="?id=<?= $row['id'] ?>"><span class="badge rounded-pill text-bg-success">Edit</span></a>
+                        <a href="17.1-menupostdetails.php?id=<?= $row['id'] ?>"><span class="badge text-bg-primary">View</span></a>
+                        <a href="19-emenupost.php?id=<?= $row['id'] ?>"><span class="badge rounded-pill text-bg-success">Edit</span></a>
                         <a href="18-deletemenu.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['gambar'] ?>?');"><span class="badge rounded-pill text-bg-danger">Delete</span></a>
                     </td>
                 </tr>
