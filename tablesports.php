@@ -2,7 +2,7 @@
 
 require_once 'userfunctions.php';
 
-$sports = ambildata($condb, 'SELECT * FROM lsposrts')
+$sports = ambildata($condb, 'SELECT * FROM lsports')
 
 
 ?>

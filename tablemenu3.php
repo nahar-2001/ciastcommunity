@@ -168,7 +168,7 @@ foreach ($menu as $item) {
         </tr>
         <?php
         // Define the meal categories
-        $categories = ['sarapan', 'tengahari', 'petang', 'malam'];
+        $categories = ['sarapan', 'tengahhari', 'petang', 'malam'];
 
         // Loop through each day of the week
         foreach ($menu_data as $day => $meals) {

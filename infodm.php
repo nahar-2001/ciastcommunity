@@ -81,24 +81,18 @@ $menu = ambildata($condb, "SELECT * FROM menu");
                     <div class="col-md-8">
                         <div class="card-body">
                             <p class="card-text"><?= $row['comments'] ?></p>
+                            <a href="infodmdetails.php?id=<?= $row['id']?>" class="btn btn-primary">Lihat Selanjutnya</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="align-items-center d-flex justify-content-center">
-            <button class="btn btn-primary" onclick="printPage()">Print</button>
-        </div><br>
+        <div class="align-items-center d-flex justify-content-center"> 
+        </div>
 
     <?php endforeach; ?>
     <script src="js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        function printPage() {
-            window.print();
-        }
-    </script>
-    <br>
 </body>
 
 </html>

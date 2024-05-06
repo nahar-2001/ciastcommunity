@@ -162,13 +162,13 @@ foreach ($menu as $item) {
         <tr>
           <th>HARI / MASA</th>
           <th>SARAPAN</th>
-          <th>MAKAN TENGAHARI</th>
+          <th>MAKAN TENGAHHARI</th>
           <th>MINUM PETANG</th>
           <th>MAKAN MALAM</th>
         </tr>
         <?php
         // Define the meal categories
-        $categories = ['sarapan', 'tengahari', 'petang', 'malam'];
+        $categories = ['sarapan', 'tengahhari', 'petang', 'malam'];
 
         // Loop through each day of the week
         foreach ($menu_data as $day => $meals) {

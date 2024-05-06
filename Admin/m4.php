@@ -9,7 +9,7 @@ $query3 = ambildata($condb, "SELECT * FROM lmenu WHERE category = 'Petang'");
 $query4 = ambildata($condb, "SELECT * FROM lmenu WHERE category = 'Malam'");
 
 // Fetch distinct meal categories from the m1 table
-$categories_query = ambildata($condb, 'SELECT DISTINCT category FROM m1');
+$categories_query = ambildata($condb, 'SELECT DISTINCT category FROM m4');
 $categories = array_column($categories_query, 'category');
 
 // Define the days of the week
@@ -26,7 +26,7 @@ foreach ($categories as $category) {
 $idmenu_by_category_and_day = [];
 foreach ($categories as $category) {
     foreach ($days_of_week as $day) {
-        $query = "SELECT idmenu FROM m1 WHERE category = '$category' AND hari = '$day'";
+        $query = "SELECT idmenu FROM m4 WHERE category = '$category' AND hari = '$day'";
         $result = ambildata($condb, $query);
         $idmenu_by_category_and_day[$category][$day] = $result[0]['idmenu'] ?? '';
     }
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_POST['menu'] as $day => $categories) {
         foreach ($categories as $category => $menu_id) {
             // Update m1 table
-            $query = "UPDATE m1 SET idmenu = '$menu_id' WHERE hari = '$day' AND category = '$category'";
+            $query = "UPDATE m4 SET idmenu = '$menu_id' WHERE hari = '$day' AND category = '$category'";
             jalankanquery($condb, $query);
         }
     }
@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <?php require_once 'header.php'; ?>
     <h1>View Table</h1>
-    <button class="btn btn-primary"><a href="tblmenu1.php" style="text-decoration: none; color:white">Back To Table</a></button>
+    <button class="btn btn-primary"><a href="tblmenu4.php" style="text-decoration: none; color:white">Back To Table</a></button>
     <br><br>
 
 
@@ -168,7 +168,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form action="" method="post">
     <table class="table table-bordered border-secondary">
             <tr class="table-dark">
-
                 <th>HARI / MASA</th>
                 <?php foreach ($categories as $category) : ?>
                     <th><?= $category ?></th>
@@ -192,7 +191,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </tr>
             <?php endforeach; ?>
         </table>
-        <input type="submit" value="Save Changes" onclick="">
+        <input type="submit" value="Save Changes">
     </form>
 
 
