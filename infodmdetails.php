@@ -24,6 +24,38 @@ $menu = ambildata($condb, "SELECT * FROM menu WHERE id = $id");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        /* Gambar */
+        .gambar-section {
+            padding-top: 110px;
+            /* Sesuaikan dengan tinggi navbar */
+            padding-bottom: 50px;
+            /* Sesuaikan dengan kebutuhan */
+        }
+
+        .card {
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
 </head>
 
 <body>

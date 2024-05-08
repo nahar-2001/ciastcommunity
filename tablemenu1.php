@@ -150,7 +150,7 @@ foreach ($menu as $item) {
     </div>
 
     <div class="main">
-      <h2>*PERINGATAN BERSAMA*</h2>
+      <h2>*MINGGU 1*</h2>
       <p>SILA PATUHI ARAHAN DAN PERATURAN SEMASA DI DEWAN MAKAN.</p>
 
       <!-- Display the menu table -->

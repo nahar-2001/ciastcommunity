@@ -17,6 +17,38 @@ $menu = ambildata($condb, "SELECT * FROM menu");
     <title>CiastCommunity | Info Dewan Makan</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Gambar */
+        .gambar-section {
+            padding-top: 110px;
+            /* Sesuaikan dengan tinggi navbar */
+            padding-bottom: 50px;
+            /* Sesuaikan dengan kebutuhan */
+        }
+
+        .card {
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
 </head>
 
 <body>

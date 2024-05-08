@@ -140,10 +140,10 @@ html {
       <a href="tblsubadmin.php" style="text-decoration: none;"><li>Admins</li></a>
       <a href="4-list.php" style="text-decoration: none;"><li>Student Information</li></a>
       <a href="8-news.php" style="text-decoration: none;"><li>News</li></a>
-      <a href="13-sportspost.php" style="text-decoration: none;"><li>Sports Post</li></a>
-      <a href="addsports.php" style="text-decoration: none;"><li>Add Sports</li></a>
-      <a href="16-menu.php" style="text-decoration: none;"><li>Menu Post</li></a>
+      <a href="13-sportspost.php" style="text-decoration: none;"><li>Sports Information</li></a>
+      <a href="16-menu.php" style="text-decoration: none;"><li>DM Information</li></a>
       <a href="addmenu.php" style="text-decoration: none;"><li>Add Menu</li></a>
+      <a href="m1.php" style="text-decoration: none;"><li>Edit Table Menu</li></a>
     </ul>
   </div>
 
@@ -155,8 +155,6 @@ html {
   <div class="col-3 col-s-12">
     <div class="aside">
       <h2>About</h2>
-      <p></p>
-      <h2>Contact Us</h2>
       <p></p>
     </div>
   </div>

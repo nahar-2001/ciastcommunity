@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
+
 ?>
 
 <!DOCTYPE html>
@@ -69,104 +70,108 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border: 1px solid black;
             padding: 10px;
         }
-        
+
         .jadualmakanan {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
         }
 
         .container-sm {
-        width: 30%;
-         }
+            width: 30%;
+        }
     </style>
 </head>
 
 <body>
     <?php require_once 'header.php'; ?>
-    <h1>View Table</h1>
+    <h1>Minggu 1</h1>
     <button class="btn btn-primary"><a href="tblmenu1.php" style="text-decoration: none; color:white">Back To Table</a></button>
     <br><br>
+    <a href="m1.php"><button>Minggu 1</button></a>
+    <a href="m2.php"><button>Minggu 2</button></a>
+    <a href="m3.php"><button>Minggu 3</button></a>
+    <a href="m4.php"><button>Minggu 4</button></a>
 
 
 
     <div class="jadualmakanan">
-    <div class="container-sm" style="width: 30%;">
-        <label for="Sarapan">Sarapan</label>
-        <table class="table table-bordered border-secondary">
-            <tr class="table-dark">
-                <th>No.</th>
-                <th>Menu</th>
-            </tr>
-            <?php foreach ($query1 as $row) : ?>
-            <tr>
-                <td><?= $row['id'] ?></td>
-                <td><?= $row['menu'] ?></td>
-            </tr>
-        <?php endforeach; ?>
-        </table>
-    </div>
-    
-
-    
-    <div class="container-sm" style="width: 30%;">
-    <label for="Tengahhari">Tengahhari</label>
-    <table class="table table-bordered border-secondary">
-            <tr class="table-dark">
-            <th>No.</th>
-            <th>Menu</th>
-        </tr>
-        <?php foreach ($query2 as $row) : ?>
-            <tr>
-                <td><?= $row['id'] ?></td>
-                <td><?= $row['menu'] ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
-    </div>
-    
+        <div class="container-sm" style="width: 30%;">
+            <label for="Sarapan">Sarapan</label>
+            <table class="table table-bordered border-secondary">
+                <tr class="table-dark">
+                    <th>No.</th>
+                    <th>Menu</th>
+                </tr>
+                <?php foreach ($query1 as $row) : ?>
+                    <tr>
+                        <td><?= $row['id'] ?></td>
+                        <td><?= $row['menu'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
 
 
 
+        <div class="container-sm" style="width: 30%;">
+            <label for="Tengahhari">Tengahhari</label>
+            <table class="table table-bordered border-secondary">
+                <tr class="table-dark">
+                    <th>No.</th>
+                    <th>Menu</th>
+                </tr>
+                <?php foreach ($query2 as $row) : ?>
+                    <tr>
+                        <td><?= $row['id'] ?></td>
+                        <td><?= $row['menu'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
 
-    <div class="container-sm" style="width: 30%;">
-    <label for="Petang">Petang</label>
-    <table class="table table-bordered border-secondary">
-            <tr class="table-dark">
-            <th>No.</th>
-            <th>Menu</th>
-        </tr>
-        <?php foreach ($query3 as $row) : ?>
-            <tr>
-                <td><?= $row['id'] ?></td>
-                <td><?= $row['menu'] ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
-    </div>
 
 
-    <div class="container-sm" style="width: 30%;">
-    <label for="Malam">Malam</label>
-    <table class="table table-bordered border-secondary">
-            <tr class="table-dark">
-            <th>No.</th>
-            <th>Menu</th>
-        </tr>
-        <?php foreach ($query4 as $row) : ?>
-            <tr>
-                <td><?= $row['id'] ?></td>
-                <td><?= $row['menu'] ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
-    </div>
+
+
+        <div class="container-sm" style="width: 30%;">
+            <label for="Petang">Petang</label>
+            <table class="table table-bordered border-secondary">
+                <tr class="table-dark">
+                    <th>No.</th>
+                    <th>Menu</th>
+                </tr>
+                <?php foreach ($query3 as $row) : ?>
+                    <tr>
+                        <td><?= $row['id'] ?></td>
+                        <td><?= $row['menu'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+
+
+        <div class="container-sm" style="width: 30%;">
+            <label for="Malam">Malam</label>
+            <table class="table table-bordered border-secondary">
+                <tr class="table-dark">
+                    <th>No.</th>
+                    <th>Menu</th>
+                </tr>
+                <?php foreach ($query4 as $row) : ?>
+                    <tr>
+                        <td><?= $row['id'] ?></td>
+                        <td><?= $row['menu'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
     </div>
 
 
 
     <form action="" method="post">
-    <table class="table table-bordered border-secondary">
+        <table class="table table-bordered border-secondary">
             <tr class="table-dark">
 
                 <th>HARI / MASA</th>
@@ -192,11 +197,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </tr>
             <?php endforeach; ?>
         </table>
-        <input type="submit" value="Save Changes" onclick="">
+        <button class="btn btn-primary" type="submit" value="submit" onclick="return confirm ('Are You Sure To Edit This Table');">Save The Change</button>
     </form>
-
-
-
 
     <script src="../js/bootstrap.bundle.min.js"></script>
 </body>

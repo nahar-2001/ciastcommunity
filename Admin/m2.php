@@ -84,10 +84,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <?php require_once 'header.php'; ?>
-    <h1>View Table</h1>
+    <h1>Minggu 2</h1>
     <button class="btn btn-primary"><a href="tblmenu2.php" style="text-decoration: none; color:white">Back To Table</a></button>
     <br><br>
-
+    <a href="m1.php"><button>Minggu 1</button></a>
+    <a href="m2.php"><button>Minggu 2</button></a>
+    <a href="m3.php"><button>Minggu 3</button></a>
+    <a href="m4.php"><button>Minggu 4</button></a>
 
 
     <div class="jadualmakanan">
@@ -191,7 +194,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </tr>
             <?php endforeach; ?>
         </table>
-        <input type="submit" value="Save Changes">
+        <button class="btn btn-primary" type="submit" value="submit" onclick="return confirm ('Are You Sure To Edit This Table');">Save The Change</button>
     </form>
 
 

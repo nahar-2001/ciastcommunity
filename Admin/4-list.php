@@ -40,8 +40,10 @@ $pelajar = ambildata($condb, 'SELECT * FROM pelajar');
         <tr>
             <th>No.</th>
             <th>Gambar</th>
-            <th>NDP</th>
+            <th>No. Daftar Pelajar</th>
             <th>Nama</th>
+            <th>No. Kad Pegenalan</th>
+            <th>No. Telefon</th>
             <th>Email</th>
             <th>Kursus</th>
             <th>Tetapan</th>
@@ -61,13 +63,19 @@ $pelajar = ambildata($condb, 'SELECT * FROM pelajar');
                     <?= $row['fname'] . ' ' . $row['lname'] ?>
                 </td>
                 <td>
+                    <?= $row['nokp'] ?>
+                </td>
+                <td>
+                    <?= $row['phone'] ?>
+                </td>
+                <td>
                     <?= $row['email'] ?>
                 </td>
                 <td>
                     <?= $row['kursus'] ?>
                 </td>
                 <td>
-                    <a href="4.1-view.php?id=<?= $row['id'] ?>"><span class="badge text-bg-primary">View</span></a>
+                    <!-- <a href="4.1-view.php?id=<?= $row['id'] ?>"><span class="badge text-bg-primary">View</span></a> -->
                     <a href="5-edit.php?id=<?= $row['id'] ?>"><span class="badge rounded-pill text-bg-success">Edit</span></a>
                     <a href="6-delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Adakah anda yakin untuk memadam data <?= $row['fname'] ?>?');"><span class="badge rounded-pill text-bg-danger">Delete</span></a>
                 </td>

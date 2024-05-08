@@ -2,9 +2,9 @@
 require_once 'Admin/functions.php';
 
 // Fetch menu data from the database
-$menu = ambildata($condb, 'SELECT m1.hari, m1.category, lmenu.menu 
-                             FROM m1 
-                             INNER JOIN lmenu ON m1.idmenu = lmenu.id');
+$menu = ambildata($condb, 'SELECT m3.hari, m3.category, lmenu.menu 
+                             FROM m3 
+                             INNER JOIN lmenu ON m3.idmenu = lmenu.id');
 
 // Initialize arrays to store menu data for each day and meal category
 $menu_data = array();
@@ -150,7 +150,7 @@ foreach ($menu as $item) {
     </div>
 
     <div class="main">
-      <h2>*PERINGATAN BERSAMA*</h2>
+      <h2>*MINGGU 3*</h2>
       <p>SILA PATUHI ARAHAN DAN PERATURAN SEMASA DI DEWAN MAKAN.</p>
 
       <!-- Display the menu table -->

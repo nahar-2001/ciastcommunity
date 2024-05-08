@@ -35,10 +35,7 @@ $news = ambildata($condb, 'SELECT * FROM reports');
     <button class="btn btn-primary"><a href="8-news.php" style="text-decoration: none; color:white">Back To News</a></button>
     <br><br>
 
-    <button id="printPageButton" class="btn btn-primary" onclick="window.print()">
-        <i class="fas fa-print"></i> Print
-    </button>
-    <br><br>
+   
 
     <form action="" method="post">
 

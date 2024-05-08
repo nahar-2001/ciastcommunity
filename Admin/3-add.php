@@ -72,6 +72,11 @@ if (isset($_POST['submit'])) {
             </li>
             <br>
             <li>
+                <label for="phone">No. Telefon:</label><br>
+                <input type="text" name="phone" id="phone" required>
+            </li>
+            <br>
+            <li>
                 <label for="email">Email:</label><br>
                 <input type="text" name="email" id="email" required>
             </li>

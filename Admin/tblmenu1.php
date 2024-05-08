@@ -1,91 +1,160 @@
 <?php
-// Panggil fail function
 require_once 'functions.php';
 
-// session_start();
+// Fetch menu data from the database
+$menu = ambildata($condb, 'SELECT m1.hari, m1.category, lmenu.menu 
+                             FROM m1 
+                             INNER JOIN lmenu ON m1.idmenu = lmenu.id');
 
-// if (!isset($_SESSION['submit'])) {
-//     header('Location: 1-adminlogin.php');
-//     exit;
-// }
+// Initialize arrays to store menu data for each day and meal category
+$menu_data = array();
 
-$menu = ambildata($condb, 'SELECT * FROM m1');
+// Loop through the menu data to organize it by day and meal category
+foreach ($menu as $item) {
+    $hari = $item['hari'];
+    $category = strtolower($item['category']);
+    $menu_item = $item['menu'];
 
-// Fetch distinct meal categories from the m1 table
-$categories_query = ambildata($condb, 'SELECT DISTINCT category FROM m1');
-$categories = array_column($categories_query, 'category');
-
-// Define the days of the week
-$days_of_week = ['Isnin', 'Selasa', 'Rabu', 'Khamis', 'Jumaat', 'Sabtu', 'Ahad'];
-
-
-
+    // Store the menu item in the respective day and meal category array
+    $menu_data[$hari][$category] = $menu_item;
+}
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>CiastCommunity | Info Dewan Makan</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .menu {
+            float: left;
+            width: 20%;
+            text-align: center;
+        }
+
+        .menu a {
+            background-color: #e5e5e5;
+            padding: 8px;
+            margin-top: 7px;
+            display: block;
+            width: 100%;
+            color: black;
+        }
+
+        .main {
+            float: left;
+            width: 60%;
+            padding: 0 20px;
+        }
+
+        .right {
+            background-color: #e5e5e5;
+            float: left;
+            width: 20%;
+            padding: 15px;
+            margin-top: 7px;
+            text-align: center;
+        }
+
         table {
-            border-collapse: collapse;
-            border: 1px solid black;
-            margin-bottom: 40px;
+            text-align: center;
         }
 
-        th,
+        td,
         td {
-            border: 1px solid black;
-            padding: 10px;
-        }
-        
-        .jadualmakanan {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
+            padding: 20px;
         }
 
-        .container-sm {
-        width: 30%;
-         }
+        @media only screen and (max-width: 620px) {
+
+            /* For mobile phones: */
+            .menu,
+            .main,
+            .right {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
-<body>
-<?php require_once 'header.php'; ?>
+<body style="font-family:Verdana;color:#aaaaaa;">
 
-    <table class="table table-bordered border-secondary">
-        
-        
-        
-    <tr class="table-dark">
-        
-          <th>HARI / MASA</th>
-          <?php foreach ($categories as $category) : ?>
-                    <th><?= $category ?></th>
-        <?php endforeach; ?>      
-        </tr>
-        
+    <?php require_once 'header.php'; ?>
 
-        <?php foreach ($days_of_week as $day) : ?>
-        <tr>
-        
-        <td><?= $day ?></td>
+   
 
-          <td></td>
+    <div style="background-color:#e5e5e5;padding:15px;text-align:center;">
+        <h1>MENU MAKAN & MINUM DI DEWAN MAKAN</h1>
+    </div>
+
+    <div style="overflow:auto">
+        <div class="menu">
+            <a href="tblmenu1.php">MINGGU 1</a>
+            <a href="tblmenu2.php">MINGGU 2</a>
+            <a href="tblmenu3.php">MINGGU 3</a>
+            <a href="tblmenu4.php">MINGGU 4</a>
+        </div>
+
+        <div class="main">
+            <h2>*MINGGU 1*</h2>
+            <p>SILA PATUHI ARAHAN DAN PERATURAN SEMASA DI DEWAN MAKAN.</p>
+
+            <!-- Display the menu table -->
+            <table style="width: 100%;">
+                <colgroup>
+                    <col span="1" style="background-color: white">
+                    <col span="3" style="background-color: white">
+                </colgroup>
+                <tr>
+                    <th>HARI / MASA</th>
+                    <th>SARAPAN</th>
+                    <th>MAKAN TENGAHHARI</th>
+                    <th>MINUM PETANG</th>
+                    <th>MAKAN MALAM</th>
+                </tr>
+                <?php
+                // Define the meal categories
+                $categories = ['sarapan', 'tengahhari', 'petang', 'malam'];
+
+                // Loop through each day of the week
+                foreach ($menu_data as $day => $meals) {
+                    echo "<tr>";
+                    echo "<td><b>$day</b></td>";
+
+                    // Loop through each meal category
+                    foreach ($categories as $category) {
+                        // Check if the menu data for this day and meal category exists
+                        if (isset($meals[$category])) {
+                            // Display the menu item
+                            echo "<td>{$meals[$category]}</td>";
+                        } else {
+                            // If no menu data exists, display an empty cell
+                            echo "<td></td>";
+                        }
+                    }
+                    echo "</tr>";
+                }
+                ?>
+            </table>
+
+        </div>
+
+    <button id="printPageButton" class="btn btn-primary" onclick="window.print()">
+        <i class="fas fa-print"></i> Print
+    </button>
+    <br><br>
+</div>
 
 
-        </tr>
-        <?php endforeach; ?>
-
-      </table>
-
-
-
-
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

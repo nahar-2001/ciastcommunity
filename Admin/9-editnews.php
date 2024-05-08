@@ -45,13 +45,15 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit News</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
 </head>
 <body>
 <?php require_once 'header.php';?>
 
     <h1>Edit News</h1>
 
-    <a href="7-viewnews.php">Back To View News</a>
+    <a href="7-viewnews.php"><button class="btn btn-primary">Back To View News</button></a>
     <br><br>
 
     <form action="" method="post" enctype="multipart/form-data">
@@ -74,7 +76,8 @@ if (isset($_POST['submit'])) {
             <br>
             <li>
                 <label for="ptitle">News Title:</label><br>
-                <input type="text" name="ptitle" id="ptitle" required value="<?= $ptitle ?>">
+                <!-- <input type="text" name="ptitle" id="ptitle" required value="<?= $ptitle ?>"> -->
+                <textarea name="ptitle" id="ptitle"><?= $ptitle ?></textarea>
             </li>
             <br>
             <li>
@@ -89,5 +92,7 @@ if (isset($_POST['submit'])) {
 
 
     </form>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

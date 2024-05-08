@@ -56,10 +56,7 @@ if (isset($_POST['submit'])) {
     <button class="btn btn-primary"><a href="7-viewnews.php" style="text-decoration:none; color: white;">View News Post</a></button>
     <br><br>
 
-    <button id="printPageButton" class="btn btn-primary" onclick="window.print()">
-        <i class="fas fa-print"></i> Print
-    </button>
-    <br><br>
+   
 
     <form action="" method="post" class="row" enctype="multipart/form-data">
 

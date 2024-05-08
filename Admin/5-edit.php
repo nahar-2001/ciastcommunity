@@ -18,8 +18,9 @@ $pelajar = ambildata($condb, "SELECT * FROM pelajar WHERE id = $id")[0];
 
 $fname = $pelajar['fname'];
 $lname = $pelajar['lname'];
-$nokp = $pelajar['nokp'];
 $ndp = $pelajar['ndp'];
+$nokp = $pelajar['nokp'];
+$phone = $pelajar['phone'];
 $email = $pelajar['email'];
 $kursus = $pelajar['kursus'];
 $gambar = $pelajar['gambar'];
@@ -84,13 +85,18 @@ if (isset($_POST['submit'])) {
             </li>
             <br>
             <li>
+                <label for="ndp">NDP:</label><br>
+                <input type="text" name="ndp" id="ndp" required value="<?= $ndp ?>">
+            </li>
+            <br>
+            <li>
                 <label for="nokp">No KP:</label><br>
                 <input type="text" name="nokp" id="nokp" required value="<?= $nokp ?>">
             </li>
             <br>
             <li>
-                <label for="ndp">NDP:</label><br>
-                <input type="text" name="ndp" id="ndp" required value="<?= $ndp ?>">
+                <label for="phone">No. Tel:</label><br>
+                <input type="text" name="phone" id="phone" required value="<?= $phone ?>">
             </li>
             <br>
             <li>

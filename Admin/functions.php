@@ -63,8 +63,9 @@ function daftar($condb, $reports)
     // Simpan setiap data dari post $data ke dalam variables
     $fname = htmlspecialchars($reports['fname']);
     $lname = htmlspecialchars($reports['lname']);
-    $nokp = htmlspecialchars($reports['nokp']);
     $ndp = htmlspecialchars($reports['ndp']);
+    $nokp = htmlspecialchars($reports['nokp']);
+    $phone = htmlspecialchars($reports['phone']);
     $email = htmlspecialchars($reports['email']);
     $kursus = htmlspecialchars($reports['kursus']);
 
@@ -80,8 +81,9 @@ function daftar($condb, $reports)
      ('',
      '$fname',
      '$lname',
-     '$nokp',
      '$ndp',
+     '$nokp',
+     '$phone',
      '$email',
      '$kursus',
      '$gambar'
