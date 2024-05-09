@@ -152,13 +152,13 @@ html {
     <p></p>
   </div>
 
-  <div class="col-3 col-s-12">
+  <!-- <div class="col-3 col-s-12">
     <div class="aside">
       <h2>About</h2>
       <p></p>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- <div class="footer">
   <p>Resize the browser window to see how the content respond to the resizing.</p>
