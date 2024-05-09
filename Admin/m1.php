@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <?php require_once 'header.php'; ?>
-    <h1>Minggu 1</h1>
+    <h1>Jadual Makan Minggu 1</h1>
     <button class="btn btn-primary"><a href="tblmenu1.php" style="text-decoration: none; color:white">Back To Table</a></button>
     <br><br>
     <a href="m1.php"><button>Minggu 1</button></a>

@@ -62,17 +62,19 @@ if (isset($_POST['submit'])) {
 
 <div class="mb-3">
     <label for="gambar">Gambar</label>
-    <input type="file" name="gambar" id="gambar">
+    <input type="file" class="form-control" name="gambar" id="gambar">
 </div>
 
 <div class="mb-3">
   <label for="comments" class="form-label">Comments</label>
   <textarea class="form-control" name="comments" id="comments" rows="3"></textarea>
 </div>
-
-<button type="submit" name="submit" class="btn btn-success">Save and Post</button>
-<br>
-<button type="button" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Are You Sure to Discard Your Post');">Discard</button>
+<br><br>
+<div class="form-group">
+            <div class="col-md-12">
+                <button type="submit" name="submit" class="btn btn-success">Save and Post</button>
+            </div>
+        </div>
 </form> 
 
 

@@ -44,8 +44,8 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIAST News</title>
-    
-    
+
+
 </head>
 
 <body>
@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
     <button class="btn btn-primary"><a href="7-viewnews.php" style="text-decoration:none; color: white;">View News Post</a></button>
     <br><br>
 
-   
+
 
     <form action="" method="post" class="row" enctype="multipart/form-data">
 
@@ -64,25 +64,30 @@ if (isset($_POST['submit'])) {
             <label for="ptitle" class="form-label">News Title</label>
             <input type="text" class="form-control" name="ptitle" id="ptitle" required>
         </div>
-
+        <br>
         <div class="mb-3">
             <label for="pdetails" class="form-label">News Details</label>
             <textarea class="form-control" name="pdetails" id="pdetails" rows="3"></textarea>
         </div>
-
+        <br>
         <div class="mb-3">
             <label for="gambar">Gambar</label>
-            <input type="file" name="gambar" id="gambar">
+            <input type="file" class="form-control" name="gambar" id="gambar">
         </div>
-
+        <br>
         <div class="mb-3">
             <label for="gambar2">Gambar</label>
-            <input type="file" name="gambar2" id="gambar2">
+            <input type="file" class="form-control" name="gambar2" id="gambar2">
+        </div>
+        <br><br>
+
+        <div class="form-group">
+
+            <div class="col-md-12">
+                <button type="submit" name="submit" class="btn btn-success">Save and Post</button>
+            </div>
         </div>
 
-        <button type="submit" name="submit" class="btn btn-success">Save and Post</button>
-        <br>
-        <button type="button" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Are You Sure to Discard Your Report');">Discard</button>
     </form>
 
 </body>

@@ -50,65 +50,73 @@ if (isset($_POST['submit'])) {
     <br><br>
 
     <form action="" method="POST" enctype="multipart/form-data">
-        <ul>
-            <li>
-                <label for="fname">First Name:</label><br>
-                <input type="text" name="fname" id="fname" required>
-            </li>
-            <br>
-            <li>
-                <label for="lname">Last Name:</label><br>
-                <input type="text" name="lname" id="lname" required>
-            </li>
-            <br>
-            <li>
-                <label for="ndp">No. Daftar Pelajar:</label><br>
-                <input type="text" name="ndp" id="ndp" required>
-            </li>
-            <br>
-            <li>
-                <label for="nokp">No. Kad Pengenalan:</label><br>
-                <input type="text" name="nokp" id="nokp" required>
-            </li>
-            <br>
-            <li>
-                <label for="phone">No. Telefon:</label><br>
-                <input type="text" name="phone" id="phone" required>
-            </li>
-            <br>
-            <li>
-                <label for="email">Email:</label><br>
-                <input type="text" name="email" id="email" required>
-            </li>
-            <br>
-            <li>
-                <label for="kursus">Kursus:</label><br>
-                <select name="kursus" id="kursus" class="form-select" aria-label="Default select example">
-                    <option selected>Select Course</option>
-                    <option value="Tvet-I">Tvet-I</option>
-                    <option value="DPV Aotumotif">DPV Aotumotif</option>
-                    <option value="DPV Elektronik">DPV Elektronik</option>
-                    <option value="DPV Kimpalan">DPV Kimpalan</option>
-                    <option value="DPV Mekatronik">DPV Mekatronik</option>
-                    <option value="DPV Pengeluaran">DPV Pengeluaran</option>
-                    <option value="DPV Sistem Komputer">DPV Sistem Komputer</option>
-                    <option value="DLPV Automotif">DLPV Automotif</option>
-                    <option value="DLPV Elektronik">DLPV Elektronik</option>
-                    <option value="DLPV Kimpalan">DLPV Kimpalan</option>
-                    <option value="DLPV Mekatronik">DLPV Mekatronik</option>
-                    <option value="DLPV Pengeluaran">DLPV Pengeluaran</option>
-                    <option value="DLPV Sistem Komputer">DLPV Sistem Komputer</option>
-                    <option value="DLPV Keselamatan Siber">DLPV Keselamatan Siber</option>
-                </select>
-            </li>
-            <br>
-            <li>
-                <label for="gambar">Gambar:</label><br>
-                <input type="file" name="gambar" id="gambar" required>
-            </li>
-            <br>
-            <button type="submit" name="submit">Daftar</button>
-        </ul>
+
+        <div class="form-group col-md-6">
+            <label for="fname">First Name:</label>
+            <input type="fname" class="form-control" id="fname" name="fname" placeholder="Enter fname" required>
+        </div>
+        <br>
+
+        <div class="form-group col-md-6">
+            <label for="lname">Last Name:</label>
+            <input type="lname" class="form-control" id="lname" name="lname" placeholder="Enter lname" required>
+        </div>
+        <br>
+        <div class="form-group col-md-6">
+            <label for="ndp">No. Daftar Pelajar:</label>
+            <input type="ndp" class="form-control" id="ndp" name="ndp" placeholder="Enter ndp" required>
+        </div>
+        <br>
+        <div class="form-group col-md-6">
+            <label for="nokp">No. Kad Pengenalan:</label>
+            <input type="nokp" class="form-control" id="nokp" name="nokp" placeholder="Enter nokp" required>
+        </div>
+        <br>
+        <div class="form-group col-md-6">
+            <label for="phone">No. Telefon:</label>
+            <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter phone" required>
+        </div>
+        <br>
+        <div class="form-group col-md-6">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+        </div>
+        <br>
+        <div class="form-group col-md-6">
+            <label for="kursus">Kursus:</label><br>
+            <select name="kursus" id="kursus" class="form-select" aria-label="Default select example">
+                <option selected>Select Course</option>
+                <option value="Tvet-I">Tvet-I</option>
+                <option value="DPV Aotumotif">DPV Aotumotif</option>
+                <option value="DPV Elektronik">DPV Elektronik</option>
+                <option value="DPV Kimpalan">DPV Kimpalan</option>
+                <option value="DPV Mekatronik">DPV Mekatronik</option>
+                <option value="DPV Pengeluaran">DPV Pengeluaran</option>
+                <option value="DPV Sistem Komputer">DPV Sistem Komputer</option>
+                <option value="DLPV Automotif">DLPV Automotif</option>
+                <option value="DLPV Elektronik">DLPV Elektronik</option>
+                <option value="DLPV Kimpalan">DLPV Kimpalan</option>
+                <option value="DLPV Mekatronik">DLPV Mekatronik</option>
+                <option value="DLPV Pengeluaran">DLPV Pengeluaran</option>
+                <option value="DLPV Sistem Komputer">DLPV Sistem Komputer</option>
+                <option value="DLPV Keselamatan Siber">DLPV Keselamatan Siber</option>
+            </select>
+        </div>
+        <br>
+        <div class="form-group col-md-6">
+            <label for="gambar">Gambar:</label>
+            <input type="file" class="form-control" id="gambar" name="gambar" required>
+        </div>
+        <br><br>
+        <div class="form-group">
+
+            <div class="col-md-12">
+
+                <button type="submit" name="submit" id="submit" class="btn btn-success">Daftar</button>
+
+            </div>
+        </div>
+        <br>
     </form>
 
 </body>
