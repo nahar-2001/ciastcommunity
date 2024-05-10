@@ -29,7 +29,7 @@ $menu = ambildata($condb, 'SELECT * FROM lmenu');
     <a href="addmenu.php" style="text-decoration: none; color:white;"><button class="btn btn-primary">Add Menu</button></a>
     <br><br>
 
-    <a href="tablemenu1.php" style="text-decoration: none; color:white;"><button class="btn btn-primary">Table Menu</button></a>
+    <a href="tblmenu1.php" style="text-decoration: none; color:white;"><button class="btn btn-primary">Table Menu</button></a>
     <br><br>
 
     <table border="1" cellpadding="10" cellspacing="0">

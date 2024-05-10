@@ -94,9 +94,9 @@ $menu = ambildata($condb, "SELECT * FROM menu WHERE id = $id");
                                 <li><a class="dropdown-item" href="tablesports.php">Jadual Sukan</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link mx-lg-2" href="contactus.php">Contact Us</a>
-                        </li>
+                        </li> -->
                         
                     </ul>
                 </div>
